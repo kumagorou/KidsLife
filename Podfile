@@ -6,6 +6,7 @@ platform :ios, '8.0'
 
 target 'KidsLife' do
   pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
+  pod 'SCLAlertView'
 end
 
 target 'KidsLifeTests' do
