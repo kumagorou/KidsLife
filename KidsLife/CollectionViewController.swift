@@ -13,12 +13,13 @@ class CollectionViewController: UIViewController, MedalImageTouchScrollViewDeleg
     private var backGround: UIImageView!
     private var plate: UIImageView!
     private var medal: UIImageView!
+    private var medalArray: [UIImageView] = []
     var scrollView = MedalTouchScrollView()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        scrollView.medalDelegate = self
         backGround = UIImageView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height))
         let backGroundImage = UIImage(named: "Background-1.png")
         backGround.image = backGroundImage
@@ -32,6 +33,7 @@ class CollectionViewController: UIViewController, MedalImageTouchScrollViewDeleg
         self.view.addSubview(scrollView)
         
         
+
         print(UIScreen.mainScreen().bounds.size.height / 13)
         for i in 0...10{
             plate = UIImageView(frame: CGRectMake(0, CGFloat(155 * i), UIScreen.mainScreen().bounds.size.width,UIScreen.mainScreen().bounds.size.height / 13))
@@ -39,10 +41,13 @@ class CollectionViewController: UIViewController, MedalImageTouchScrollViewDeleg
             plate.image = plateImage
             scrollView.addSubview(plate)
             for i in 0...29{
-                medal = UIImageView(frame: CGRectMake( 25 + CGFloat(120 * (i % 3)), 21 + CGFloat(155 * Int(i / 3)), 80, 150))
-                let medalImage = UIImage(named: "Medal_3.png")
-                medal.image = medalImage
-                scrollView.addSubview(medal)
+                medalArray.insert(UIImageView(), atIndex: i)
+                medalArray[i] = UIImageView(frame: CGRectMake( 25 + CGFloat(120 * (i % 3)), 21 + CGFloat(155 * Int(i / 3)), 80, 150))
+                medalArray[i].userInteractionEnabled = true
+                medalArray[i].layer.masksToBounds = true
+                medalArray[i].tag = i + 1
+                medalArray[i].image = UIImage(named: "Medal_3.png")
+                scrollView.addSubview(medalArray[i])
                 
             }
         }
