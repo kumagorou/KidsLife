@@ -18,6 +18,7 @@ class LoginViewController: UIViewController {
     let ageTextField = UITextField(frame: CGRectMake(0, 0, 200, 30))
     let sexIconButton = UIButton()
     let alert = SCLAlertView()
+    let defaults = NSUserDefaults.standardUserDefaults()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,10 +29,16 @@ class LoginViewController: UIViewController {
         self.configureAgeTextField()
         self.configureSexButton()
         self.createRegisterButton()
-        
         // 数字のみのTextFieldを下げるために必要
         let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "tapped")
         self.view.addGestureRecognizer(tapGesture)
+        
+        //　端末情報(UUID)の取得
+        let uuid: NSString = NSUUID().UUIDString
+        defaults.setObject(uuid, forKey: "UUID")
+        
+        print(defaults.objectForKey("UUID") as! String)
+        
     }
     
     
