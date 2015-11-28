@@ -18,6 +18,7 @@
 		25F3ECA01C09925D00233769 /* EventSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F3EC9F1C09925D00233769 /* EventSearchViewController.swift */; };
 		25F3ECA21C09926C00233769 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F3ECA11C09926C00233769 /* ScheduleViewController.swift */; };
 		25F3ECA41C09927500233769 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F3ECA31C09927500233769 /* CollectionViewController.swift */; };
+		96FA5ED5B6AC381ABCDF118F /* Pods_KidsLife.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EFEA0AAAD8BF9D523EE33AB /* Pods_KidsLife.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1EFEA0AAAD8BF9D523EE33AB /* Pods_KidsLife.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KidsLife.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		25F3EC6A1C0991CD00233769 /* KidsLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KidsLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25F3EC6D1C0991CD00233769 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25F3EC721C0991CD00233769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -55,6 +57,8 @@
 		25F3EC9F1C09925D00233769 /* EventSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventSearchViewController.swift; sourceTree = "<group>"; };
 		25F3ECA11C09926C00233769 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		25F3ECA31C09927500233769 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		8A371B3553A2D5791750AD0F /* Pods-KidsLife.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KidsLife.release.xcconfig"; path = "Pods/Target Support Files/Pods-KidsLife/Pods-KidsLife.release.xcconfig"; sourceTree = "<group>"; };
+		BF2B8D0CB1CA719DF6DF3139 /* Pods-KidsLife.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KidsLife.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KidsLife/Pods-KidsLife.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96FA5ED5B6AC381ABCDF118F /* Pods_KidsLife.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +94,8 @@
 				25F3EC811C0991CD00233769 /* KidsLifeTests */,
 				25F3EC8C1C0991CD00233769 /* KidsLifeUITests */,
 				25F3EC6B1C0991CD00233769 /* Products */,
+				B2EFEC305AC20005E245A248 /* Pods */,
+				C75266DB35143A6AFBE2F81A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -137,6 +144,23 @@
 			path = KidsLifeUITests;
 			sourceTree = "<group>";
 		};
+		B2EFEC305AC20005E245A248 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BF2B8D0CB1CA719DF6DF3139 /* Pods-KidsLife.debug.xcconfig */,
+				8A371B3553A2D5791750AD0F /* Pods-KidsLife.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C75266DB35143A6AFBE2F81A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1EFEA0AAAD8BF9D523EE33AB /* Pods_KidsLife.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,9 +168,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 25F3EC921C0991CD00233769 /* Build configuration list for PBXNativeTarget "KidsLife" */;
 			buildPhases = (
+				CA7BF9F8FC4F0B4FAA9DEBFB /* Check Pods Manifest.lock */,
 				25F3EC661C0991CD00233769 /* Sources */,
 				25F3EC671C0991CD00233769 /* Frameworks */,
 				25F3EC681C0991CD00233769 /* Resources */,
+				40E80B08B34FB62319910ADC /* Embed Pods Frameworks */,
+				1EAACB7ADA2E285E37C02554 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -262,6 +289,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1EAACB7ADA2E285E37C02554 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KidsLife/Pods-KidsLife-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		40E80B08B34FB62319910ADC /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KidsLife/Pods-KidsLife-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CA7BF9F8FC4F0B4FAA9DEBFB /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		25F3EC661C0991CD00233769 /* Sources */ = {
@@ -411,6 +486,7 @@
 		};
 		25F3EC931C0991CD00233769 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BF2B8D0CB1CA719DF6DF3139 /* Pods-KidsLife.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = KidsLife/Info.plist;
@@ -422,6 +498,7 @@
 		};
 		25F3EC941C0991CD00233769 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A371B3553A2D5791750AD0F /* Pods-KidsLife.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = KidsLife/Info.plist;

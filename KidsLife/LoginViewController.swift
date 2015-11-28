@@ -11,7 +11,7 @@ import UIKit
 class LoginViewController: UIViewController {
     
     let myPageVC = MyPageViewController()
-    let eventSearchVC = EventSearchViewController()
+    let eventSearchVC = EventSearchViewController(nibName: nil, bundle: nil)
     let scheduleVC = ScheduleViewController()
     let collectionVC = CollectionViewController()
 

@@ -25,5 +25,4 @@ Podfile.lock
 *.swp
 !.gitkeep
 .DS_Store
-*.xcworkspace
-!default.xcworkspace
+.xcworkspace
