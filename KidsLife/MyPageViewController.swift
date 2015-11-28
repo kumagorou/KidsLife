@@ -45,6 +45,7 @@ class MyPageViewController: UIViewController {
         self.configureProfileView()
         self.configureBackgroundView()
         self.configureImageButton()
+        self.navigationController?.navigationBar.hidden = true
     }
     
     func configureBackgroundView() {

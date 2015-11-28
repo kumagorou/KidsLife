@@ -21,6 +21,8 @@ class CollectionViewController: UIViewController, MedalImageTouchScrollViewDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.hidden = true
+        
         //長押しを検知
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: "longPressGesture:")
         //何秒押したら長押しと判断するのか
