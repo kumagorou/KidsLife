@@ -47,37 +47,26 @@ class EventSearchViewController: UITableViewController{
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
     // json取得->tableに突っ込む
     func makeTableData() {
         self.isInLoad = true
-        var url = NSURL(string: self.urlString)!
-        var task = NSURLSession.sharedSession().dataTaskWithURL(url, completionHandler: {data, response, error in
+        let url = NSURL(string: self.urlString)!
+        let task = NSURLSession.sharedSession().dataTaskWithURL(url, completionHandler: {data, response, error in
             // リソースの取得が終わると、ここに書いた処理が実行される
-            var json = JSON(data: data)
+            var json = JSON(data: data!)
             
-            println(json["list"])
+            print(json["list"])
             // 各セルに情報を突っ込む
             //適当なJSONファイルが持っている値
             for var i = 0; i < self.cellNum; i++ {
-                var eventname = json["list"][i]["eventname"]
-                var date = json["list"][i]["date"]
-                var place = json["list"][i]["place"]
-                var tag = json["list"][i]["tag"]
-                var pictureurl =  json["list"][i]["pictureurl"]
-                var info = "\(eventname), \(date), \(date), \(place),\(tag),\(pictureurl)"
+                let eventname = json["list"][i]["eventname"]
+                let date = json["list"][i]["date"]
+                let place = json["list"][i]["place"]
+                let tag = json["list"][i]["tag"]
+                let pictureurl =  json["list"][i]["pictureurl"]
+                let info = "\(eventname), \(date), \(date), \(place),\(tag),\(pictureurl)"
                 self.cellItems[i] = info
-                println(eventname)
+                print(eventname)
             }
             // ロードが完了したので、falseに
             self.isInLoad = false
