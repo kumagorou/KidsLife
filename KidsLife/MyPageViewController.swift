@@ -16,20 +16,23 @@ class MyPageViewController: UIViewController {
     
     let backgroundButton = UIButton()
     
-//    let myImageButtonSize = 100
-    let imageButtonSize: CGFloat = (245 / 2) // 画像のサイズ
+    let imageButtonSize: CGFloat = 100
+    //let imageButtonSize: CGFloat = (245 / 2) // 画像のサイズ
 
     
     var profileViewWidth: CGFloat = 0
     var profileViewHeight: CGFloat = 0
     
     let defaults = NSUserDefaults.standardUserDefaults()
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.whiteColor()
-
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
         self.backgroundWidth = self.screenSize.width
         self.profileViewWidth = self.screenSize.width
         self.profileViewHeight = (self.screenSize.height - self.backgroundHeight)
@@ -43,7 +46,8 @@ class MyPageViewController: UIViewController {
         print(__FUNCTION__)
         self.backgroundButton.frame = CGRectMake(0, 0, self.backgroundWidth, self.backgroundHeight)
         
-        if (defaults.objectForKey("sex") as! String == "おとこのこ") {
+        let sex = defaults.objectForKey("sex") as? String ?? "おとこのこ"
+        if (sex == "おとこのこ") {
             self.backgroundButton.backgroundColor = UIColor(red: 143 / 255, green: 185 / 255, blue: 227 / 255, alpha: 1)
         } else {
             self.backgroundButton.backgroundColor = UIColor(red: 255 / 255, green: 185 / 255, blue: 227 / 255, alpha: 1)
@@ -60,12 +64,11 @@ class MyPageViewController: UIViewController {
     func configureImageButton() {
         let buttonX = (self.backgroundButton.frame.size.width / 2) - (self.imageButtonSize / 2)
         let buttonY = (self.backgroundButton.frame.size.height - (self.imageButtonSize / 2))
-        
-
-        
         let buttonRect = CGRectMake(buttonX, buttonY, self.imageButtonSize, self.imageButtonSize)
 
         let button = UIButton(frame: buttonRect)
+//        button.setImage(UIImage(named: "Yotsu.png"), forState: .Normal)
+        button.setBackgroundImage(UIImage(named: "Yotsu.png"), forState: .Normal)
         button.layer.masksToBounds = true
         button.layer.cornerRadius = (self.imageButtonSize / 2)
         button.layer.borderWidth = 1.0
