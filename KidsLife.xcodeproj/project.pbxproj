@@ -20,6 +20,13 @@
 		25F3ECA21C09926C00233769 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F3ECA11C09926C00233769 /* ScheduleViewController.swift */; };
 		25F3ECA41C09927500233769 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F3ECA31C09927500233769 /* CollectionViewController.swift */; };
 		96FA5ED5B6AC381ABCDF118F /* Pods_KidsLife.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EFEA0AAAD8BF9D523EE33AB /* Pods_KidsLife.framework */; };
+		DD40C0811C0A142D000C14F0 /* MedalTouchScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD40C0801C0A142D000C14F0 /* MedalTouchScrollView.swift */; };
+		DD40C0831C0A1438000C14F0 /* ModalViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD40C0821C0A1438000C14F0 /* ModalViewControllerDelegate.swift */; };
+		DD40C0871C0A148F000C14F0 /* Background-1.png in Resources */ = {isa = PBXBuildFile; fileRef = DD40C0851C0A148F000C14F0 /* Background-1.png */; };
+		DD40C0881C0A148F000C14F0 /* Bar.png in Resources */ = {isa = PBXBuildFile; fileRef = DD40C0861C0A148F000C14F0 /* Bar.png */; };
+		DD40C08B1C0A14A2000C14F0 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DD40C0891C0A14A2000C14F0 /* Icon.png */; };
+		DD40C08C1C0A14A2000C14F0 /* Medal_2.png in Resources */ = {isa = PBXBuildFile; fileRef = DD40C08A1C0A14A2000C14F0 /* Medal_2.png */; };
+		DD40C08E1C0A154F000C14F0 /* Medal_3.png in Resources */ = {isa = PBXBuildFile; fileRef = DD40C08D1C0A154F000C14F0 /* Medal_3.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +68,13 @@
 		25F3ECA31C09927500233769 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		8A371B3553A2D5791750AD0F /* Pods-KidsLife.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KidsLife.release.xcconfig"; path = "Pods/Target Support Files/Pods-KidsLife/Pods-KidsLife.release.xcconfig"; sourceTree = "<group>"; };
 		BF2B8D0CB1CA719DF6DF3139 /* Pods-KidsLife.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KidsLife.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KidsLife/Pods-KidsLife.debug.xcconfig"; sourceTree = "<group>"; };
+		DD40C0801C0A142D000C14F0 /* MedalTouchScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedalTouchScrollView.swift; sourceTree = "<group>"; };
+		DD40C0821C0A1438000C14F0 /* ModalViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalViewControllerDelegate.swift; sourceTree = "<group>"; };
+		DD40C0851C0A148F000C14F0 /* Background-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-1.png"; sourceTree = "<group>"; };
+		DD40C0861C0A148F000C14F0 /* Bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bar.png; sourceTree = "<group>"; };
+		DD40C0891C0A14A2000C14F0 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		DD40C08A1C0A14A2000C14F0 /* Medal_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Medal_2.png; sourceTree = "<group>"; };
+		DD40C08D1C0A154F000C14F0 /* Medal_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Medal_3.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +128,8 @@
 		25F3EC6C1C0991CD00233769 /* KidsLife */ = {
 			isa = PBXGroup;
 			children = (
+				DD40C0821C0A1438000C14F0 /* ModalViewControllerDelegate.swift */,
+				DD40C0801C0A142D000C14F0 /* MedalTouchScrollView.swift */,
 				25F3EC6D1C0991CD00233769 /* AppDelegate.swift */,
 				25F3EC711C0991CD00233769 /* Main.storyboard */,
 				25F3EC741C0991CD00233769 /* Assets.xcassets */,
@@ -125,6 +141,7 @@
 				25F3ECA11C09926C00233769 /* ScheduleViewController.swift */,
 				25F3ECA31C09927500233769 /* CollectionViewController.swift */,
 				2118F2A41C09E0E800B51581 /* EventDetail.swift */,
+				DD40C0841C0A147B000C14F0 /* figure */,
 			);
 			path = KidsLife;
 			sourceTree = "<group>";
@@ -162,6 +179,18 @@
 				1EFEA0AAAD8BF9D523EE33AB /* Pods_KidsLife.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DD40C0841C0A147B000C14F0 /* figure */ = {
+			isa = PBXGroup;
+			children = (
+				DD40C08D1C0A154F000C14F0 /* Medal_3.png */,
+				DD40C0891C0A14A2000C14F0 /* Icon.png */,
+				DD40C08A1C0A14A2000C14F0 /* Medal_2.png */,
+				DD40C0851C0A148F000C14F0 /* Background-1.png */,
+				DD40C0861C0A148F000C14F0 /* Bar.png */,
+			);
+			name = figure;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,9 +300,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD40C08B1C0A14A2000C14F0 /* Icon.png in Resources */,
 				25F3EC781C0991CD00233769 /* LaunchScreen.storyboard in Resources */,
+				DD40C08C1C0A14A2000C14F0 /* Medal_2.png in Resources */,
+				DD40C08E1C0A154F000C14F0 /* Medal_3.png in Resources */,
+				DD40C0871C0A148F000C14F0 /* Background-1.png in Resources */,
 				25F3EC751C0991CD00233769 /* Assets.xcassets in Resources */,
 				25F3EC731C0991CD00233769 /* Main.storyboard in Resources */,
+				DD40C0881C0A148F000C14F0 /* Bar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,8 +385,10 @@
 				25F3ECA21C09926C00233769 /* ScheduleViewController.swift in Sources */,
 				25F3EC9C1C09923100233769 /* LoginViewController.swift in Sources */,
 				25F3ECA01C09925D00233769 /* EventSearchViewController.swift in Sources */,
+				DD40C0811C0A142D000C14F0 /* MedalTouchScrollView.swift in Sources */,
 				25F3EC9E1C09924C00233769 /* MyPageViewController.swift in Sources */,
 				25F3EC6E1C0991CD00233769 /* AppDelegate.swift in Sources */,
+				DD40C0831C0A1438000C14F0 /* ModalViewControllerDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
