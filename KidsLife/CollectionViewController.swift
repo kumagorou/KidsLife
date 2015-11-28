@@ -15,6 +15,7 @@ class CollectionViewController: UIViewController, MedalImageTouchScrollViewDeleg
     private var medal: UIImageView!
     var scrollView = MedalTouchScrollView()
     var selectNumber: Int?
+    var getMedal = GetMedal()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,15 +40,15 @@ class CollectionViewController: UIViewController, MedalImageTouchScrollViewDeleg
         
         
 
-        print(UIScreen.mainScreen().bounds.size.height / 13)
+        var medalImageArray = getMedal.getImageData()
         for i in 0...10{
             plate = UIImageView(frame: CGRectMake(0, CGFloat(155 * i), UIScreen.mainScreen().bounds.size.width,UIScreen.mainScreen().bounds.size.height / 13))
             let plateImage = UIImage(named: "Bar.png")
             plate.image = plateImage
             scrollView.addSubview(plate)
-            for i in 0...29{
+            for i in 0..<medalImageArray.count{
                 medal = UIImageView(frame: CGRectMake( 25 + CGFloat(120 * (i % 3)), 21 + CGFloat(155 * Int(i / 3)), 80, 150))
-                medal.image = UIImage(named: "Medal_3.png")
+                medal.image = medalImageArray[i]
                 medal.userInteractionEnabled = true
                 medal.layer.masksToBounds = true
                 medal.tag = i + 1
