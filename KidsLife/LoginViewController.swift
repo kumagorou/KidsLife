@@ -17,6 +17,7 @@ class LoginViewController: UIViewController {
     let nameTextField = UITextField(frame: CGRectMake(0, 0, 200, 30))
     let ageTextField = UITextField(frame: CGRectMake(0, 0, 200, 30))
     let sexIconButton = UIButton()
+    let alert = SCLAlertView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,9 +116,6 @@ class LoginViewController: UIViewController {
     func moveTabBarViewController() {
         // 登録できない場合(TextFieldの値が空白とかnil)
         if (!self.canRegister()) {
-            // アラートを表示する
-            let alert = SCLAlertView()
-            alert.showError("Error", subTitle: "名前と年が正しくありません", closeButtonTitle: "OK", duration: 0)
             return
         }
         
@@ -144,9 +142,13 @@ class LoginViewController: UIViewController {
     func canRegister() -> Bool {
         // TextFieldの中身を調べる
         if (self.nameTextField.text == "" || self.nameTextField.text == nil) {
+            // アラートを表示する
+
+            alert.showError("まちがい", subTitle: "名前が正しく入力されていません", closeButtonTitle: "はい", duration: 0)
             return false
         }
         if (self.ageTextField.text == "" || self.ageTextField.text == nil) {
+            alert.showError("まちがい", subTitle: "年齢が正しく入力されていません", closeButtonTitle: "はい", duration: 0)
             return false
         }
         return true
