@@ -103,7 +103,7 @@ class EventSearchViewController: UIViewController, UITableViewDelegate, UITableV
                 let pictureurl =  json[i]["pictureurl"]
                 //イベントの画像URLを代入
                 self.imageURL = NSURL(string: pictureurl.stringValue)
-                let info = "\(eventname), \(date),\(place),\(tag),\(pictureurl)"
+                let info = "\(eventname)\n\(date)\n\(place)\n\(tag)"
                 self.MyTableItems[i] = info
             }
             // ロードが完了したので、falseに
@@ -149,6 +149,8 @@ class EventSearchViewController: UIViewController, UITableViewDelegate, UITableV
         
         // 再利用するCellを取得する.
         let cell = tableView.dequeueReusableCellWithIdentifier("MyCell", forIndexPath: indexPath)
+        
+        cell.textLabel?.numberOfLines = 4
         
         // Cellに値を設定する.
         cell.textLabel!.text = "\(MyTableItems[indexPath.row])"
