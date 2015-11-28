@@ -16,8 +16,13 @@ class MyPageViewController: UIViewController {
     
     let backgroundButton = UIButton()
     
-    let imageButtonSize: CGFloat = 100
-    //let imageButtonSize: CGFloat = (245 / 2) // 画像のサイズ
+    let imageButtonSize: CGFloat = (276 / 2) // 画像のサイズ
+    
+    var profileView = UIView()
+    
+    let favoriteMedalImageView = UIImageView(image: UIImage(named: "FavoriteMedal.png"))
+    let medalImageViewWidth: CGFloat = (168 / 2)
+    let medalImageViewHeight: CGFloat = (313 / 2)
 
     
     var profileViewWidth: CGFloat = 0
@@ -57,23 +62,42 @@ class MyPageViewController: UIViewController {
     
     func configureProfileView() {
         print(__FUNCTION__)
-        let view = UIView(frame: CGRectMake(0, self.backgroundHeight, self.profileViewWidth, self.profileViewHeight))
-        self.view.addSubview(view)
+        self.profileView = UIView(frame: CGRectMake(0, self.backgroundHeight, self.profileViewWidth, self.profileViewHeight))
+        self.view.addSubview(self.profileView)
     }
     
     func configureImageButton() {
+        // アイコンボタン
         let buttonX = (self.backgroundButton.frame.size.width / 2) - (self.imageButtonSize / 2)
         let buttonY = (self.backgroundButton.frame.size.height - (self.imageButtonSize / 2))
         let buttonRect = CGRectMake(buttonX, buttonY, self.imageButtonSize, self.imageButtonSize)
 
         let button = UIButton(frame: buttonRect)
-//        button.setImage(UIImage(named: "Yotsu.png"), forState: .Normal)
         button.setBackgroundImage(UIImage(named: "Yotsu.png"), forState: .Normal)
         button.layer.masksToBounds = true
         button.layer.cornerRadius = (self.imageButtonSize / 2)
-        button.layer.borderWidth = 1.0
         button.addTarget(self, action: "updateImage", forControlEvents: .TouchUpInside)
         self.backgroundButton.addSubview(button)
+        
+        // アイコンボタンの下のメダルのやつ
+        let imageViewX = (self.screenSize.width / 2) - (self.medalImageViewWidth / 2)
+        let imageViewY = (button.frame.size.height / 2) - 20
+        self.favoriteMedalImageView.frame = CGRectMake(imageViewX, imageViewY, self.medalImageViewWidth, self.medalImageViewHeight)
+        self.favoriteMedalImageView.image = UIImage(named: "FavoriteMedal.png")
+        print(self.favoriteMedalImageView.frame)
+        self.profileView.addSubview(self.favoriteMedalImageView)
+        
+        // そのメダルの下に生えのラベルを表示する
+        let margin: CGFloat = 20
+        let labelX = margin
+        let labelY = (imageViewY + self.medalImageViewHeight + margin)
+        let labelWidth = self.screenSize.width - (margin * 2)
+        let labelHeight = margin
+        let nameLabel = UILabel(frame: CGRectMake(labelX, labelY, labelWidth, labelHeight))
+        nameLabel.text = NSUserDefaults.standardUserDefaults().objectForKey("name") as? String ?? "No Name"
+        nameLabel.textAlignment = .Center
+        nameLabel.font = UIFont(name: "Helvetica", size: 25)
+        self.profileView.addSubview(nameLabel)
     }
     
     func updateImage() {
