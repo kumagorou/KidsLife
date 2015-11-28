@@ -45,6 +45,22 @@ class GetMedal{
         }
         return imageArray
     }
-    
-    
+    func sendFavoriteMedal(number: Int){
+        let urlString = "http://192.168.100.150/api/medal?favorite_id=\(number)&user_id=1"
+        var request = NSMutableURLRequest(URL: NSURL(string: urlString)!)
+        
+        request.HTTPMethod = "GET"
+        
+        var task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { data, response, error in
+            if (error == nil) {
+                var result = NSString(data: data!, encoding: NSUTF8StringEncoding)!
+                print(result)
+            } else {
+                print(error)
+            }
+        })
+        task.resume()
+        
+    }
+
 }

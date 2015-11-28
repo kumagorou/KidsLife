@@ -16,13 +16,15 @@ class CollectionViewController: UIViewController, MedalImageTouchScrollViewDeleg
     var scrollView = MedalTouchScrollView()
     var selectNumber: Int?
     var getMedal = GetMedal()
+    var textArray: [String] = ["お絵描き大会参加のメダル", "お絵かき大会優勝のメダル", "山登り参加のメダル"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //長押しを検知
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: "longPressGesture:")
         //何秒押したら長押しと判断するのか
-        longPressGesture.minimumPressDuration = 2.0
+        longPressGesture.minimumPressDuration = 0.5
         longPressGesture.allowableMovement = 150
         self.view.addGestureRecognizer(longPressGesture)
         scrollView.medalDelegate = self
@@ -68,9 +70,13 @@ class CollectionViewController: UIViewController, MedalImageTouchScrollViewDeleg
     internal func longPressGesture(sender: UILongPressGestureRecognizer){
         // 指が離れたことを検知
         if let number = selectNumber{
-            let alertController = UIAlertController(title: "お気に入りにしますか？", message: "メダル: \(selectNumber!)", preferredStyle: .Alert)
+            
+            
+            let alertController = UIAlertController(title: textArray[number], message: "お気に入りにしますか？", preferredStyle: .Alert)
             let otherAction = UIAlertAction(title: "OK", style: .Default){
                 action in print("push OK!")
+                print(number)
+                self.getMedal.sendFavoriteMedal(number + 1)
             }
             let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel){
                 action in print("Puch Cancel")
