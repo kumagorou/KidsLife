@@ -1,7 +1,9 @@
 PODS:
+  - SCLAlertView (0.4.3)
   - SwiftyJSON (2.3.1)
 
 DEPENDENCIES:
+  - SCLAlertView
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
 
 EXTERNAL SOURCES:
@@ -14,6 +16,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
+  SCLAlertView: a5c726a80a938fd3127edd7dbc19da33fb936ca3
   SwiftyJSON: 592b53bee5ef3dd9b3bebc6b9cb7ee35426ae8c3
 
 COCOAPODS: 0.39.0
