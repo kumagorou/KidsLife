@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2118F2A51C09E0E800B51581 /* EventDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2118F2A41C09E0E800B51581 /* EventDetail.swift */; };
 		21C3B3B91C0A2A7C00A65E86 /* ToDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C3B3B81C0A2A7C00A65E86 /* ToDetailViewController.swift */; };
+		252815C21C0A2FE80087139D /* FavoriteMedal.png in Resources */ = {isa = PBXBuildFile; fileRef = 252815C11C0A2FE80087139D /* FavoriteMedal.png */; };
+		252815C41C0A2FFD0087139D /* Yotsu.png in Resources */ = {isa = PBXBuildFile; fileRef = 252815C31C0A2FFD0087139D /* Yotsu.png */; };
 		25F3EC6E1C0991CD00233769 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F3EC6D1C0991CD00233769 /* AppDelegate.swift */; };
 		25F3EC731C0991CD00233769 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25F3EC711C0991CD00233769 /* Main.storyboard */; };
 		25F3EC751C0991CD00233769 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25F3EC741C0991CD00233769 /* Assets.xcassets */; };
@@ -51,6 +53,8 @@
 		1EFEA0AAAD8BF9D523EE33AB /* Pods_KidsLife.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KidsLife.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2118F2A41C09E0E800B51581 /* EventDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetail.swift; sourceTree = "<group>"; };
 		21C3B3B81C0A2A7C00A65E86 /* ToDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDetailViewController.swift; sourceTree = "<group>"; };
+		252815C11C0A2FE80087139D /* FavoriteMedal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FavoriteMedal.png; sourceTree = "<group>"; };
+		252815C31C0A2FFD0087139D /* Yotsu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Yotsu.png; sourceTree = "<group>"; };
 		25F3EC6A1C0991CD00233769 /* KidsLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KidsLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25F3EC6D1C0991CD00233769 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25F3EC721C0991CD00233769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -187,6 +191,8 @@
 		DD40C0841C0A147B000C14F0 /* figure */ = {
 			isa = PBXGroup;
 			children = (
+				252815C31C0A2FFD0087139D /* Yotsu.png */,
+				252815C11C0A2FE80087139D /* FavoriteMedal.png */,
 				DD40C08D1C0A154F000C14F0 /* Medal_3.png */,
 				DD40C0891C0A14A2000C14F0 /* Icon.png */,
 				DD40C08A1C0A14A2000C14F0 /* Medal_2.png */,
@@ -307,10 +313,12 @@
 				25F3EC781C0991CD00233769 /* LaunchScreen.storyboard in Resources */,
 				DD40C08C1C0A14A2000C14F0 /* Medal_2.png in Resources */,
 				DD40C08E1C0A154F000C14F0 /* Medal_3.png in Resources */,
+				252815C21C0A2FE80087139D /* FavoriteMedal.png in Resources */,
 				DD40C0871C0A148F000C14F0 /* Background-1.png in Resources */,
 				25F3EC751C0991CD00233769 /* Assets.xcassets in Resources */,
 				25F3EC731C0991CD00233769 /* Main.storyboard in Resources */,
 				DD40C0881C0A148F000C14F0 /* Bar.png in Resources */,
+				252815C41C0A2FFD0087139D /* Yotsu.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
