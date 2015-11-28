@@ -10,27 +10,18 @@ import UIKit
 import SCLAlertView
 
 class LoginViewController: UIViewController {
-    
-    let myPageVC = MyPageViewController()
-    let eventSearchVC = EventSearchViewController(nibName: nil, bundle: nil)
-    let scheduleVC = ScheduleViewController()
-    let collectionVC = CollectionViewController()
-    
+        
     let screenSize = UIScreen.mainScreen().bounds
     let horizontalMargin: CGFloat = (UIScreen.mainScreen().bounds.height / 5) - 20
     
     let nameTextField = UITextField(frame: CGRectMake(0, 0, 200, 30))
     let ageTextField = UITextField(frame: CGRectMake(0, 0, 200, 30))
+    let sexIconButton = UIButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.view.backgroundColor = UIColor.whiteColor()
-
-        // これがないと最初にタブバーの文字が表示されない
-        self.myPageVC.tabBarItem = UITabBarItem(tabBarSystemItem: .Featured, tag: 1)
-        self.eventSearchVC.tabBarItem = UITabBarItem(tabBarSystemItem: .Featured, tag: 2)
-        self.scheduleVC.tabBarItem = UITabBarItem(tabBarSystemItem: .Featured, tag: 3)
-        self.collectionVC.tabBarItem = UITabBarItem(tabBarSystemItem: .Featured, tag: 4)
         
         self.configureNameTextField()
         self.configureAgeTextField()
@@ -41,6 +32,7 @@ class LoginViewController: UIViewController {
         let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "tapped")
         self.view.addGestureRecognizer(tapGesture)
     }
+    
     
     func configureNameTextField() {
         nameTextField.placeholder = "なまえ"
@@ -75,19 +67,19 @@ class LoginViewController: UIViewController {
         let buttonY = self.horizontalMargin * 3 + 30 // ageTextFieldのheight分下げる
         let buttonRect = CGRectMake(buttonX, buttonY, buttonSize, buttonSize)
         
-        let button = UIButton(frame: buttonRect)
-        button.setTitle("おとこのこ", forState: .Normal)
-        button.backgroundColor = UIColor.blueColor()
+        self.sexIconButton.frame = buttonRect
+        self.sexIconButton.setTitle("おとこのこ", forState: .Normal)
+        self.sexIconButton.backgroundColor = UIColor.blueColor()
         
         // ボタンを丸くする
-        button.layer.masksToBounds = true
-        button.layer.cornerRadius = buttonSize / 2
-        button.layer.borderWidth = 1.0
+        self.sexIconButton.layer.masksToBounds = true
+        self.sexIconButton.layer.cornerRadius = buttonSize / 2
+        self.sexIconButton.layer.borderWidth = 1.0
         
         // 押した時にボタンのタイトルを変更する
-        button.addTarget(self, action: "changeSex:", forControlEvents: .TouchUpInside)
+        self.sexIconButton.addTarget(self, action: "changeSex:", forControlEvents: .TouchUpInside)
         
-        self.view.addSubview(button)
+        self.view.addSubview(self.sexIconButton)
     }
     
     func createRegisterButton() {
@@ -121,17 +113,28 @@ class LoginViewController: UIViewController {
     }
     
     func moveTabBarViewController() {
-        // 登録できない場合(TextFieldの値がおかしい)
+        // 登録できない場合(TextFieldの値が空白とかnil)
         if (!self.canRegister()) {
             // アラートを表示する
             let alert = SCLAlertView()
             alert.showError("Error", subTitle: "名前と年が正しくありません", closeButtonTitle: "OK", duration: 0)
             return
         }
-        let myTabBarController = UITabBarController()
-        let vcArrays = NSArray(objects: myPageVC, eventSearchVC, scheduleVC, collectionVC)
-        myTabBarController.setViewControllers(vcArrays as? [UIViewController], animated: false)
+        
+        // データがちゃんと入力されている場合はNSUserDefaultsに保存する
+        self.register()
+        
+        // tabBarをAppDelegateがgetする
+        let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let myTabBarController = delegate.myTabBarController
         self.presentViewController(myTabBarController, animated: true, completion: nil)
+    }
+    
+    func register() {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(nameTextField.text, forKey: "name")
+        defaults.setObject(ageTextField.text, forKey: "age")
+        defaults.setObject(self.sexIconButton.titleLabel?.text, forKey: "sex")
     }
     
     func tapped() {
