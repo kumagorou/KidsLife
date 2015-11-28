@@ -19,12 +19,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let eventSearchVC = EventSearchViewController(nibName: nil, bundle: nil)
     let scheduleVC = ScheduleViewController()
     let collectionVC = CollectionViewController()
+    
+    
 
     let myTabBarController = UITabBarController()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        let vcArrays = NSArray(objects: myPageVC, eventSearchVC, scheduleVC, collectionVC)
+        let nav1 = UINavigationController(rootViewController: myPageVC)
+        let nav2 = UINavigationController(rootViewController: eventSearchVC)
+        let nav3 = UINavigationController(rootViewController: scheduleVC)
+        let nav4 = UINavigationController(rootViewController: collectionVC)
+        
+        let vcArrays = NSArray(objects: nav1, nav2, nav3, nav4)
         self.myTabBarController.setViewControllers(vcArrays as? [UIViewController], animated:
             false)
         self.configureTabBar()

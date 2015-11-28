@@ -12,7 +12,6 @@ import LocalAuthentication
 class ToDetailViewController: UIViewController {
     
     private var myButton: UIButton!
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.whiteColor()
@@ -28,10 +27,9 @@ class ToDetailViewController: UIViewController {
         myButton.addTarget(self, action: "onClickMyButton:", forControlEvents: .TouchUpInside)
         // ボタンをViewに追加する.
         self.view.addSubview(myButton)
-        // Do any additional setup after loading the view.
     }
     
-    internal func onClickMyButton(sender: UIButton){
+     internal func onClickMyButton(sender: UIButton){
         let context = LAContext();
         var error :NSError?
         // Touch ID が利用できるデバイスか確認する

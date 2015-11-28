@@ -138,7 +138,6 @@
 		25F3EC6C1C0991CD00233769 /* KidsLife */ = {
 			isa = PBXGroup;
 			children = (
-				21C3B3B81C0A2A7C00A65E86 /* ToDetailViewController.swift */,
 				DD40C0821C0A1438000C14F0 /* ModalViewControllerDelegate.swift */,
 				DD40C0801C0A142D000C14F0 /* MedalTouchScrollView.swift */,
 				25F3EC6D1C0991CD00233769 /* AppDelegate.swift */,
@@ -149,6 +148,7 @@
 				25F3EC9B1C09923100233769 /* LoginViewController.swift */,
 				25F3EC9D1C09924C00233769 /* MyPageViewController.swift */,
 				25F3EC9F1C09925D00233769 /* EventSearchViewController.swift */,
+				21C3B3B81C0A2A7C00A65E86 /* ToDetailViewController.swift */,
 				25F3ECA11C09926C00233769 /* ScheduleViewController.swift */,
 				25F3ECA31C09927500233769 /* CollectionViewController.swift */,
 				2118F2A41C09E0E800B51581 /* EventDetail.swift */,

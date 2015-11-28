@@ -59,8 +59,6 @@ class EventSearchViewController: UIViewController, UITableViewDelegate, UITableV
         
         // Viewに追加する.
         self.view.addSubview(myTableView)
-
-
         // Do any additional setup after loading the view.
     }
 
@@ -129,9 +127,8 @@ class EventSearchViewController: UIViewController, UITableViewDelegate, UITableV
         let appDegegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDegegate.blendName = "\(MyTableItems[indexPath.row])"
         let detailViewController = ToDetailViewController()
-        self.presentViewController(detailViewController, animated: true, completion: nil)
-
-    }
+        self.navigationController?.pushViewController(detailViewController, animated: true)
+        }
     
     /*
     Cellの総数を返すデータソースメソッド.
