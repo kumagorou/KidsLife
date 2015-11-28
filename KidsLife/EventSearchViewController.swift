@@ -9,26 +9,53 @@
 import UIKit
 import SwiftyJSON
 
-class EventSearchViewController: UITableViewController{
+class EventSearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
     
     // セクションの数
     let sectionNum = 1
     // 1セクションあたりのセルの行数
     let cellNum = 5
-    let urlString = "http://192.168.100.150/Eventdata.json" //適当なjsonファイルへのパス
+    let urlString = "http://192.168.100.150/event" //適当なjsonファイルへのパス
     // セルの中身
-    var cellItems = NSMutableArray()
+    var MyTableItems = NSMutableArray()
     // ロード中かどうか
     var isInLoad = false
     // 選択されたセルの列番号
     var selectedRow: Int?
+    
+    private var myTableView: UITableView!
+    
+    //pictureURLを代入する変数
+    private var imageURL:NSURL!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // json取得->tableに突っ込む
         makeTableData()
         self.view.backgroundColor = UIColor.whiteColor()
+        
+        // Status Barの高さを取得する.
+        let barHeight: CGFloat = UIApplication.sharedApplication().statusBarFrame.size.height
+        
+        // Viewの高さと幅を取得する.
+        let displayWidth: CGFloat = self.view.frame.width
+        let displayHeight: CGFloat = self.view.frame.height
+        
+        // TableViewの生成する(status barの高さ分ずらして表示).
+        myTableView = UITableView(frame: CGRect(x: 0, y: barHeight, width: displayWidth, height: displayHeight - barHeight))
+        
+        // Cell名の登録をおこなう.
+        myTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "MyCell")
+        
+        // DataSourceの設定をする.
+        myTableView.dataSource = self
+        
+        // Delegateを設定する.
+        myTableView.delegate = self
+        
+        // Viewに追加する.
+        self.view.addSubview(myTableView)
 
 
         // Do any additional setup after loading the view.
@@ -51,22 +78,30 @@ class EventSearchViewController: UITableViewController{
     func makeTableData() {
         self.isInLoad = true
         let url = NSURL(string: self.urlString)!
+        //print(url);
+        
         let task = NSURLSession.sharedSession().dataTaskWithURL(url, completionHandler: {data, response, error in
-            // リソースの取得が終わると、ここに書いた処理が実行される
-            var json = JSON(data: data!)
             
-            print(json["list"])
+            // リソースの取得が終わると、ここに書いた処理が実行される
+            var json : JSON = JSON(data: data!)
+            //デバック用
+             //print(json)
+            
             // 各セルに情報を突っ込む
             //適当なJSONファイルが持っている値
-            for var i = 0; i < self.cellNum; i++ {
-                let eventname = json["list"][i]["eventname"]
-                let date = json["list"][i]["date"]
-                let place = json["list"][i]["place"]
-                let tag = json["list"][i]["tag"]
-                let pictureurl =  json["list"][i]["pictureurl"]
-                let info = "\(eventname), \(date), \(date), \(place),\(tag),\(pictureurl)"
-                self.cellItems[i] = info
-                print(eventname)
+            //var index = 0;
+            for var i = 0; i < json.count; i++ {
+                //デバック用
+                //print(json.count)
+                let eventname = json[i]["event_name"]
+                let date = json[i]["date"]
+                let place = json[i]["place"]
+                let tag = json[i]["tag"]
+                let pictureurl =  json[i]["pictureurl"]
+                //イベントの画像URLを代入
+                self.imageURL = NSURL(string: pictureurl.stringValue)
+                let info = "\(eventname), \(date),\(place),\(tag),\(pictureurl)"
+                self.MyTableItems[i] = info
             }
             // ロードが完了したので、falseに
             self.isInLoad = false
@@ -79,38 +114,46 @@ class EventSearchViewController: UITableViewController{
     }
     
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return self.sectionNum
     }
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return titleName.count
-        return self.cellNum
+    /*
+    Cellが選択された際に呼び出されるデリゲートメソッド.
+    */
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+        print("Num: \(indexPath.row)")
+        print("Value: \(MyTableItems[indexPath.row])")
     }
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("list", forIndexPath: indexPath) as UITableViewCell
-        
-        cell.textLabel?.text = self.cellItems[indexPath.row] as? String
-        return cell
-    }
-    override func tableView(tableView: UITableView?, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier("detail", sender: nil)
-    }
-    
     
     /*
-    //ここは要検証
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var CellIdentifier: String = "Cell"
-        var cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier)!
-        if cell == nil {
-            cell = UITableViewCell(style: .Default, reuseIdentifier: CellIdentifier)
-        }
-        cell.textLabel!.text = "rakuishi07"
-        var imageURL: String = "http://rakuishi.com/wp-content/themes/rakuishi/image/rakuishi.png"
-        var image: UIImage = UIImage.imageWithData(NSData.dataWithContentsOfURL(NSURL(string: imageURL))!)
+    Cellの総数を返すデータソースメソッド.
+    (実装必須)
+    */
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return MyTableItems.count
+    }
+    
+    /*
+    Cellに値を設定するデータソースメソッド.
+    (実装必須)
+    */
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        // 再利用するCellを取得する.
+        let cell = tableView.dequeueReusableCellWithIdentifier("MyCell", forIndexPath: indexPath)
+        
+        // Cellに値を設定する.
+        cell.textLabel!.text = "\(MyTableItems[indexPath.row])"
+        
+        //ImageData型に変更
+        let Imagedata = NSData(contentsOfURL: imageURL)
+        //Imageを表示
+        let image: UIImage = UIImage(data: Imagedata!)!
+        
         cell.imageView!.image = image
+        
         return cell
     }
-    */
+ 
 
 }
