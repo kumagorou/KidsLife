@@ -17,12 +17,7 @@ DerivedData
 *.xcuserstate
 *.LaunchScreen.storyboard
 
-# CocoaPod
-Pods/*
-Podfile.lock
-
 # others
 *.swp
 !.gitkeep
 .DS_Store
-.xcworkspace

@@ -1,0 +1,6 @@
+framework module Pods_KidsLife {
+  umbrella header "Pods-KidsLife-umbrella.h"
+
+  export *
+  module * { export * }
+}
