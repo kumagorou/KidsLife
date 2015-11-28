@@ -16,7 +16,7 @@ class EventSearchViewController: UIViewController, UITableViewDelegate, UITableV
     let sectionNum = 1
     // 1セクションあたりのセルの行数
     let cellNum = 5
-    let urlString = "http://192.168.100.150/event" //適当なjsonファイルへのパス
+    let urlString = "http://192.168.100.150/api/event" //適当なjsonファイルへのパス
     // セルの中身
     var MyTableItems = NSMutableArray()
     // ロード中かどうか
@@ -123,6 +123,7 @@ class EventSearchViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         print("Num: \(indexPath.row)")
         print("Value: \(MyTableItems[indexPath.row])")
+        
     }
     
     /*
