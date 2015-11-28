@@ -498,6 +498,7 @@
 				25F3EC941C0991CD00233769 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		25F3EC951C0991CD00233769 /* Build configuration list for PBXNativeTarget "KidsLifeTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +507,7 @@
 				25F3EC971C0991CD00233769 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		25F3EC981C0991CD00233769 /* Build configuration list for PBXNativeTarget "KidsLifeUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +516,7 @@
 				25F3EC9A1C0991CD00233769 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
