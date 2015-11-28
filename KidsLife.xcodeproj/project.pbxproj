@@ -31,6 +31,7 @@
 		DD40C08E1C0A154F000C14F0 /* Medal_3.png in Resources */ = {isa = PBXBuildFile; fileRef = DD40C08D1C0A154F000C14F0 /* Medal_3.png */; };
 		DDE5D1161C0A40B400C82F38 /* FavoriteIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = DDE5D1141C0A40B400C82F38 /* FavoriteIcon.png */; };
 		DDE5D1171C0A40B400C82F38 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DDE5D1151C0A40B400C82F38 /* Icon.png */; };
+		DDE5D11B1C0A5B2000C82F38 /* GetMedalImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE5D11A1C0A5B2000C82F38 /* GetMedalImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		DD40C08D1C0A154F000C14F0 /* Medal_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Medal_3.png; sourceTree = "<group>"; };
 		DDE5D1141C0A40B400C82F38 /* FavoriteIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FavoriteIcon.png; sourceTree = "<group>"; };
 		DDE5D1151C0A40B400C82F38 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		DDE5D11A1C0A5B2000C82F38 /* GetMedalImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetMedalImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 				25F3ECA11C09926C00233769 /* ScheduleViewController.swift */,
 				25F3ECA31C09927500233769 /* CollectionViewController.swift */,
 				2118F2A41C09E0E800B51581 /* EventDetail.swift */,
+				DDE5D11A1C0A5B2000C82F38 /* GetMedalImage.swift */,
 				DD40C0841C0A147B000C14F0 /* figure */,
 			);
 			path = KidsLife;
@@ -398,6 +401,7 @@
 				21C3B3B91C0A2A7C00A65E86 /* ToDetailViewController.swift in Sources */,
 				2118F2A51C09E0E800B51581 /* EventDetail.swift in Sources */,
 				25F3ECA41C09927500233769 /* CollectionViewController.swift in Sources */,
+				DDE5D11B1C0A5B2000C82F38 /* GetMedalImage.swift in Sources */,
 				25F3ECA21C09926C00233769 /* ScheduleViewController.swift in Sources */,
 				25F3EC9C1C09923100233769 /* LoginViewController.swift in Sources */,
 				25F3ECA01C09925D00233769 /* EventSearchViewController.swift in Sources */,
