@@ -12,11 +12,36 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    let myPageVC = MyPageViewController()
+    let eventSearchVC = EventSearchViewController(nibName: nil, bundle: nil)
+    let scheduleVC = ScheduleViewController()
+    let collectionVC = CollectionViewController()
 
+    let myTabBarController = UITabBarController()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        let vcArrays = NSArray(objects: myPageVC, eventSearchVC, scheduleVC, collectionVC)
+        self.myTabBarController.setViewControllers(vcArrays as? [UIViewController], animated:
+            false)
+        self.configureTabBar()
+
+        // 既に登録されている場合
+        if (NSUserDefaults.standardUserDefaults().objectForKey("name") != nil) {
+            // rootViewControllerをtabBarControllerにする
+            self.window?.rootViewController = self.myTabBarController
+        }
+        
         return true
+    }
+    
+    // tabBarの準備
+    func configureTabBar() {
+        self.myPageVC.tabBarItem = UITabBarItem(tabBarSystemItem: .Featured, tag: 1)
+        self.eventSearchVC.tabBarItem = UITabBarItem(tabBarSystemItem: .Featured, tag: 2)
+        self.scheduleVC.tabBarItem = UITabBarItem(tabBarSystemItem: .Featured, tag: 3)
+        self.collectionVC.tabBarItem = UITabBarItem(tabBarSystemItem: .Featured, tag: 4)
     }
 
     func applicationWillResignActive(application: UIApplication) {
