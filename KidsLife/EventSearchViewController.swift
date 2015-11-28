@@ -45,6 +45,9 @@ class EventSearchViewController: UIViewController, UITableViewDelegate, UITableV
         // TableViewの生成する(status barの高さ分ずらして表示).
         myTableView = UITableView(frame: CGRect(x: 0, y: barHeight, width: displayWidth, height: displayHeight - barHeight))
         
+        //セルの高さを変更
+        myTableView.rowHeight = 100.0;
+        
         // Cell名の登録をおこなう.
         myTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "MyCell")
         
@@ -123,7 +126,11 @@ class EventSearchViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         print("Num: \(indexPath.row)")
         print("Value: \(MyTableItems[indexPath.row])")
-        
+        let appDegegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDegegate.blendName = "\(MyTableItems[indexPath.row])"
+        let detailViewController = ToDetailViewController()
+        self.presentViewController(detailViewController, animated: true, completion: nil)
+
     }
     
     /*

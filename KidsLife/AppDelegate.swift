@@ -11,6 +11,8 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    var blendName: String?
+    
     var window: UIWindow?
     
     let myPageVC = MyPageViewController()
