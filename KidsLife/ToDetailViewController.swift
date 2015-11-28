@@ -20,9 +20,11 @@ class ToDetailViewController: UIViewController {
         
         myButton = UIButton()
         
-        myButton.frame = CGRectMake(0, 0, 200, 40)
-        myButton.layer.position = CGPoint(x: self.view.frame.width/2, y:200)
-        myButton.backgroundColor = UIColor.redColor()
+        myButton.frame = CGRectMake(0, 0, 200, 60)
+        let buttonImage:UIImage = UIImage(named: "medalget.png")!;
+        myButton.setBackgroundImage(buttonImage, forState: UIControlState.Normal);
+        myButton.layer.position = CGPoint(x: self.view.frame.width/2, y:self.view.frame.height / 1.2)
+        //myButton.backgroundColor = UIColor.redColor()
         
         myButton.addTarget(self, action: "onClickMyButton:", forControlEvents: .TouchUpInside)
         // ボタンをViewに追加する.

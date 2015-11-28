@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		2118F2A51C09E0E800B51581 /* EventDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2118F2A41C09E0E800B51581 /* EventDetail.swift */; };
+		21A5F18E1C0A6D46004EFB4A /* medalget.png in Resources */ = {isa = PBXBuildFile; fileRef = 21A5F18D1C0A6D46004EFB4A /* medalget.png */; };
+		21A5F1921C0A6E32004EFB4A /* MyAccountIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 21A5F18F1C0A6E32004EFB4A /* MyAccountIcon.png */; };
+		21A5F1931C0A6E32004EFB4A /* MedalIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 21A5F1901C0A6E32004EFB4A /* MedalIcon.png */; };
+		21A5F1941C0A6E32004EFB4A /* EventIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 21A5F1911C0A6E32004EFB4A /* EventIcon.png */; };
 		21C3B3B91C0A2A7C00A65E86 /* ToDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C3B3B81C0A2A7C00A65E86 /* ToDetailViewController.swift */; };
 		25F194441C0A57250015F659 /* FavoriteMedal.png in Resources */ = {isa = PBXBuildFile; fileRef = 25F194421C0A57250015F659 /* FavoriteMedal.png */; };
 		25F194451C0A57250015F659 /* Yotsu.png in Resources */ = {isa = PBXBuildFile; fileRef = 25F194431C0A57250015F659 /* Yotsu.png */; };
@@ -54,6 +58,10 @@
 /* Begin PBXFileReference section */
 		1EFEA0AAAD8BF9D523EE33AB /* Pods_KidsLife.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KidsLife.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2118F2A41C09E0E800B51581 /* EventDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetail.swift; sourceTree = "<group>"; };
+		21A5F18D1C0A6D46004EFB4A /* medalget.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = medalget.png; sourceTree = "<group>"; };
+		21A5F18F1C0A6E32004EFB4A /* MyAccountIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyAccountIcon.png; sourceTree = "<group>"; };
+		21A5F1901C0A6E32004EFB4A /* MedalIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MedalIcon.png; sourceTree = "<group>"; };
+		21A5F1911C0A6E32004EFB4A /* EventIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EventIcon.png; sourceTree = "<group>"; };
 		21C3B3B81C0A2A7C00A65E86 /* ToDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDetailViewController.swift; sourceTree = "<group>"; };
 		25F194421C0A57250015F659 /* FavoriteMedal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FavoriteMedal.png; sourceTree = "<group>"; };
 		25F194431C0A57250015F659 /* Yotsu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Yotsu.png; sourceTree = "<group>"; };
@@ -196,6 +204,10 @@
 		DD40C0841C0A147B000C14F0 /* figure */ = {
 			isa = PBXGroup;
 			children = (
+				21A5F18F1C0A6E32004EFB4A /* MyAccountIcon.png */,
+				21A5F1901C0A6E32004EFB4A /* MedalIcon.png */,
+				21A5F1911C0A6E32004EFB4A /* EventIcon.png */,
+				21A5F18D1C0A6D46004EFB4A /* medalget.png */,
 				25F194421C0A57250015F659 /* FavoriteMedal.png */,
 				25F194431C0A57250015F659 /* Yotsu.png */,
 				DDE5D1141C0A40B400C82F38 /* FavoriteIcon.png */,
@@ -315,16 +327,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21A5F1921C0A6E32004EFB4A /* MyAccountIcon.png in Resources */,
 				DDE5D1161C0A40B400C82F38 /* FavoriteIcon.png in Resources */,
 				25F3EC781C0991CD00233769 /* LaunchScreen.storyboard in Resources */,
 				DD40C08C1C0A14A2000C14F0 /* Medal_2.png in Resources */,
 				25F194441C0A57250015F659 /* FavoriteMedal.png in Resources */,
 				DD40C08E1C0A154F000C14F0 /* Medal_3.png in Resources */,
 				DD40C0871C0A148F000C14F0 /* Background-1.png in Resources */,
+				21A5F18E1C0A6D46004EFB4A /* medalget.png in Resources */,
 				25F3EC751C0991CD00233769 /* Assets.xcassets in Resources */,
 				25F3EC731C0991CD00233769 /* Main.storyboard in Resources */,
+				21A5F1941C0A6E32004EFB4A /* EventIcon.png in Resources */,
 				25F194451C0A57250015F659 /* Yotsu.png in Resources */,
 				DDE5D1171C0A40B400C82F38 /* Icon.png in Resources */,
+				21A5F1931C0A6E32004EFB4A /* MedalIcon.png in Resources */,
 				DD40C0881C0A148F000C14F0 /* Bar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let myPageVC = MyPageViewController()
     let eventSearchVC = EventSearchViewController(nibName: nil, bundle: nil)
-    let scheduleVC = ScheduleViewController()
+    //let scheduleVC = ScheduleViewController()
     let collectionVC = CollectionViewController()
     
     
@@ -28,10 +28,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let nav1 = UINavigationController(rootViewController: myPageVC)
         let nav2 = UINavigationController(rootViewController: eventSearchVC)
-        let nav3 = UINavigationController(rootViewController: scheduleVC)
-        let nav4 = UINavigationController(rootViewController: collectionVC)
+        //let nav3 = UINavigationController(rootViewController: scheduleVC)
+        let nav3 = UINavigationController(rootViewController: collectionVC)
         
-        let vcArrays = NSArray(objects: nav1, nav2, nav3, nav4)
+        let vcArrays = NSArray(objects: nav1, nav2, nav3)
         self.myTabBarController.setViewControllers(vcArrays as? [UIViewController], animated:
             false)
         self.configureTabBar()
@@ -47,10 +47,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // tabBarの準備
     func configureTabBar() {
-        self.myPageVC.tabBarItem = UITabBarItem(tabBarSystemItem: .Featured, tag: 1)
-        self.eventSearchVC.tabBarItem = UITabBarItem(tabBarSystemItem: .Featured, tag: 2)
-        self.scheduleVC.tabBarItem = UITabBarItem(tabBarSystemItem: .Featured, tag: 3)
-        self.collectionVC.tabBarItem = UITabBarItem(tabBarSystemItem: .Featured, tag: 4)
+        self.myPageVC.tabBarItem = UITabBarItem(title: "マイページ",image: UIImage(named: "MyAccountIcon.png"), tag: 1)
+        self.eventSearchVC.tabBarItem = UITabBarItem(title: "イベント",image: UIImage(named: "EventIcon.png"), tag: 2)
+        //self.scheduleVC.tabBarItem = UITabBarItem(tabBarSystemItem: .Featured, tag: 3)
+        self.collectionVC.tabBarItem = UITabBarItem(title: "コレクション",image: UIImage(named:"MedalIcon.png"), tag: 3)
     }
 
     func applicationWillResignActive(application: UIApplication) {
