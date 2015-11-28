@@ -1,0 +1,521 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		25F3EC6E1C0991CD00233769 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F3EC6D1C0991CD00233769 /* AppDelegate.swift */; };
+		25F3EC731C0991CD00233769 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25F3EC711C0991CD00233769 /* Main.storyboard */; };
+		25F3EC751C0991CD00233769 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25F3EC741C0991CD00233769 /* Assets.xcassets */; };
+		25F3EC781C0991CD00233769 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25F3EC761C0991CD00233769 /* LaunchScreen.storyboard */; };
+		25F3EC831C0991CD00233769 /* KidsLifeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F3EC821C0991CD00233769 /* KidsLifeTests.swift */; };
+		25F3EC8E1C0991CD00233769 /* KidsLifeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F3EC8D1C0991CD00233769 /* KidsLifeUITests.swift */; };
+		25F3EC9C1C09923100233769 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F3EC9B1C09923100233769 /* LoginViewController.swift */; };
+		25F3EC9E1C09924C00233769 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F3EC9D1C09924C00233769 /* MyPageViewController.swift */; };
+		25F3ECA01C09925D00233769 /* EventSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F3EC9F1C09925D00233769 /* EventSearchViewController.swift */; };
+		25F3ECA21C09926C00233769 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F3ECA11C09926C00233769 /* ScheduleViewController.swift */; };
+		25F3ECA41C09927500233769 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F3ECA31C09927500233769 /* CollectionViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		25F3EC7F1C0991CD00233769 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 25F3EC621C0991CD00233769 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 25F3EC691C0991CD00233769;
+			remoteInfo = KidsLife;
+		};
+		25F3EC8A1C0991CD00233769 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 25F3EC621C0991CD00233769 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 25F3EC691C0991CD00233769;
+			remoteInfo = KidsLife;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		25F3EC6A1C0991CD00233769 /* KidsLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KidsLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		25F3EC6D1C0991CD00233769 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		25F3EC721C0991CD00233769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		25F3EC741C0991CD00233769 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		25F3EC771C0991CD00233769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		25F3EC791C0991CD00233769 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		25F3EC7E1C0991CD00233769 /* KidsLifeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KidsLifeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		25F3EC821C0991CD00233769 /* KidsLifeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KidsLifeTests.swift; sourceTree = "<group>"; };
+		25F3EC841C0991CD00233769 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		25F3EC891C0991CD00233769 /* KidsLifeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KidsLifeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		25F3EC8D1C0991CD00233769 /* KidsLifeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KidsLifeUITests.swift; sourceTree = "<group>"; };
+		25F3EC8F1C0991CD00233769 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		25F3EC9B1C09923100233769 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		25F3EC9D1C09924C00233769 /* MyPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		25F3EC9F1C09925D00233769 /* EventSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventSearchViewController.swift; sourceTree = "<group>"; };
+		25F3ECA11C09926C00233769 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		25F3ECA31C09927500233769 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		25F3EC671C0991CD00233769 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		25F3EC7B1C0991CD00233769 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		25F3EC861C0991CD00233769 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		25F3EC611C0991CD00233769 = {
+			isa = PBXGroup;
+			children = (
+				25F3EC6C1C0991CD00233769 /* KidsLife */,
+				25F3EC811C0991CD00233769 /* KidsLifeTests */,
+				25F3EC8C1C0991CD00233769 /* KidsLifeUITests */,
+				25F3EC6B1C0991CD00233769 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		25F3EC6B1C0991CD00233769 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				25F3EC6A1C0991CD00233769 /* KidsLife.app */,
+				25F3EC7E1C0991CD00233769 /* KidsLifeTests.xctest */,
+				25F3EC891C0991CD00233769 /* KidsLifeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		25F3EC6C1C0991CD00233769 /* KidsLife */ = {
+			isa = PBXGroup;
+			children = (
+				25F3EC6D1C0991CD00233769 /* AppDelegate.swift */,
+				25F3EC711C0991CD00233769 /* Main.storyboard */,
+				25F3EC741C0991CD00233769 /* Assets.xcassets */,
+				25F3EC761C0991CD00233769 /* LaunchScreen.storyboard */,
+				25F3EC791C0991CD00233769 /* Info.plist */,
+				25F3EC9B1C09923100233769 /* LoginViewController.swift */,
+				25F3EC9D1C09924C00233769 /* MyPageViewController.swift */,
+				25F3EC9F1C09925D00233769 /* EventSearchViewController.swift */,
+				25F3ECA11C09926C00233769 /* ScheduleViewController.swift */,
+				25F3ECA31C09927500233769 /* CollectionViewController.swift */,
+			);
+			path = KidsLife;
+			sourceTree = "<group>";
+		};
+		25F3EC811C0991CD00233769 /* KidsLifeTests */ = {
+			isa = PBXGroup;
+			children = (
+				25F3EC821C0991CD00233769 /* KidsLifeTests.swift */,
+				25F3EC841C0991CD00233769 /* Info.plist */,
+			);
+			path = KidsLifeTests;
+			sourceTree = "<group>";
+		};
+		25F3EC8C1C0991CD00233769 /* KidsLifeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				25F3EC8D1C0991CD00233769 /* KidsLifeUITests.swift */,
+				25F3EC8F1C0991CD00233769 /* Info.plist */,
+			);
+			path = KidsLifeUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		25F3EC691C0991CD00233769 /* KidsLife */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 25F3EC921C0991CD00233769 /* Build configuration list for PBXNativeTarget "KidsLife" */;
+			buildPhases = (
+				25F3EC661C0991CD00233769 /* Sources */,
+				25F3EC671C0991CD00233769 /* Frameworks */,
+				25F3EC681C0991CD00233769 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KidsLife;
+			productName = KidsLife;
+			productReference = 25F3EC6A1C0991CD00233769 /* KidsLife.app */;
+			productType = "com.apple.product-type.application";
+		};
+		25F3EC7D1C0991CD00233769 /* KidsLifeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 25F3EC951C0991CD00233769 /* Build configuration list for PBXNativeTarget "KidsLifeTests" */;
+			buildPhases = (
+				25F3EC7A1C0991CD00233769 /* Sources */,
+				25F3EC7B1C0991CD00233769 /* Frameworks */,
+				25F3EC7C1C0991CD00233769 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				25F3EC801C0991CD00233769 /* PBXTargetDependency */,
+			);
+			name = KidsLifeTests;
+			productName = KidsLifeTests;
+			productReference = 25F3EC7E1C0991CD00233769 /* KidsLifeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		25F3EC881C0991CD00233769 /* KidsLifeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 25F3EC981C0991CD00233769 /* Build configuration list for PBXNativeTarget "KidsLifeUITests" */;
+			buildPhases = (
+				25F3EC851C0991CD00233769 /* Sources */,
+				25F3EC861C0991CD00233769 /* Frameworks */,
+				25F3EC871C0991CD00233769 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				25F3EC8B1C0991CD00233769 /* PBXTargetDependency */,
+			);
+			name = KidsLifeUITests;
+			productName = KidsLifeUITests;
+			productReference = 25F3EC891C0991CD00233769 /* KidsLifeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		25F3EC621C0991CD00233769 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = ToruNakandakari;
+				TargetAttributes = {
+					25F3EC691C0991CD00233769 = {
+						CreatedOnToolsVersion = 7.1;
+					};
+					25F3EC7D1C0991CD00233769 = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = 25F3EC691C0991CD00233769;
+					};
+					25F3EC881C0991CD00233769 = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = 25F3EC691C0991CD00233769;
+					};
+				};
+			};
+			buildConfigurationList = 25F3EC651C0991CD00233769 /* Build configuration list for PBXProject "KidsLife" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 25F3EC611C0991CD00233769;
+			productRefGroup = 25F3EC6B1C0991CD00233769 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				25F3EC691C0991CD00233769 /* KidsLife */,
+				25F3EC7D1C0991CD00233769 /* KidsLifeTests */,
+				25F3EC881C0991CD00233769 /* KidsLifeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		25F3EC681C0991CD00233769 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				25F3EC781C0991CD00233769 /* LaunchScreen.storyboard in Resources */,
+				25F3EC751C0991CD00233769 /* Assets.xcassets in Resources */,
+				25F3EC731C0991CD00233769 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		25F3EC7C1C0991CD00233769 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		25F3EC871C0991CD00233769 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		25F3EC661C0991CD00233769 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				25F3ECA41C09927500233769 /* CollectionViewController.swift in Sources */,
+				25F3ECA21C09926C00233769 /* ScheduleViewController.swift in Sources */,
+				25F3EC9C1C09923100233769 /* LoginViewController.swift in Sources */,
+				25F3ECA01C09925D00233769 /* EventSearchViewController.swift in Sources */,
+				25F3EC9E1C09924C00233769 /* MyPageViewController.swift in Sources */,
+				25F3EC6E1C0991CD00233769 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		25F3EC7A1C0991CD00233769 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				25F3EC831C0991CD00233769 /* KidsLifeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		25F3EC851C0991CD00233769 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				25F3EC8E1C0991CD00233769 /* KidsLifeUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		25F3EC801C0991CD00233769 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 25F3EC691C0991CD00233769 /* KidsLife */;
+			targetProxy = 25F3EC7F1C0991CD00233769 /* PBXContainerItemProxy */;
+		};
+		25F3EC8B1C0991CD00233769 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 25F3EC691C0991CD00233769 /* KidsLife */;
+			targetProxy = 25F3EC8A1C0991CD00233769 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		25F3EC711C0991CD00233769 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				25F3EC721C0991CD00233769 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		25F3EC761C0991CD00233769 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				25F3EC771C0991CD00233769 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		25F3EC901C0991CD00233769 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		25F3EC911C0991CD00233769 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		25F3EC931C0991CD00233769 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = KidsLife/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = testApp.KidsLife;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		25F3EC941C0991CD00233769 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = KidsLife/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = testApp.KidsLife;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		25F3EC961C0991CD00233769 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = KidsLifeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = testApp.KidsLifeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KidsLife.app/KidsLife";
+			};
+			name = Debug;
+		};
+		25F3EC971C0991CD00233769 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = KidsLifeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = testApp.KidsLifeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KidsLife.app/KidsLife";
+			};
+			name = Release;
+		};
+		25F3EC991C0991CD00233769 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = KidsLifeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = testApp.KidsLifeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = KidsLife;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		25F3EC9A1C0991CD00233769 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = KidsLifeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = testApp.KidsLifeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = KidsLife;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		25F3EC651C0991CD00233769 /* Build configuration list for PBXProject "KidsLife" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				25F3EC901C0991CD00233769 /* Debug */,
+				25F3EC911C0991CD00233769 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		25F3EC921C0991CD00233769 /* Build configuration list for PBXNativeTarget "KidsLife" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				25F3EC931C0991CD00233769 /* Debug */,
+				25F3EC941C0991CD00233769 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		25F3EC951C0991CD00233769 /* Build configuration list for PBXNativeTarget "KidsLifeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				25F3EC961C0991CD00233769 /* Debug */,
+				25F3EC971C0991CD00233769 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		25F3EC981C0991CD00233769 /* Build configuration list for PBXNativeTarget "KidsLifeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				25F3EC991C0991CD00233769 /* Debug */,
+				25F3EC9A1C0991CD00233769 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 25F3EC621C0991CD00233769 /* Project object */;
+}
