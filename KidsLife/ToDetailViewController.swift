@@ -101,7 +101,7 @@ class ToDetailViewController: UIViewController {
         task.resume()
         
         while isInLoad {
-            usleep(2)
+            usleep(5)
         }
     }
     
@@ -129,22 +129,12 @@ class ToDetailViewController: UIViewController {
     }
     
     func createLabels() {
-//        let backgroundView = UIImageView(image: UIImage(named: "TitleBackground.png"))
-//        
-//        backgroundView.frame = CGRectMake(0, UIScreen.mainScreen().bounds.size.height / 2 - (44 + 15), UIScreen.mainScreen().bounds.size.width, 50)
-//        
-//        self.scrollView.addSubview(backgroundView)
-//        
         let labelSize: CGFloat = 25
-//        self.eventLabel.frame = CGRectMake(0, (backgroundView.frame.size.height / 2) - 25, UIScreen.mainScreen().bounds.size.width, 50)
         self.eventLabel.frame = CGRectMake(0, (UIScreen.mainScreen().bounds.size.height / 2) - (44 + 15), UIScreen.mainScreen().bounds.size.width, 50)
         self.eventLabel.layer.cornerRadius = 1.0
-//        self.eventLabel.backgroundColor = UIColor.redColor()
         self.eventLabel.font = UIFont(name: "Helvetica", size: 25)
         self.eventLabel.textAlignment = .Center
         self.scrollView.addSubview(self.eventLabel)
-//        backgroundView.addSubview(self.eventLabel)
-        
         
         self.capacityLabel.frame = CGRectMake(0, self.eventLabel.frame.origin.y + self.horizontalMargin + labelSize * 2, UIScreen.mainScreen().bounds.width, labelSize)
         self.capacityLabel.font = UIFont(name: "Helvetica", size: 20)
@@ -186,7 +176,9 @@ class ToDetailViewController: UIViewController {
     }
     
     func createJoinButton() {
+        self.joinButton.titleLabel?.alpha = 0
         self.joinButton.frame = CGRectMake((UIScreen.mainScreen().bounds.size.width / 2) - 75, self.tagLabel.frame.origin.y + self.horizontalMargin * 2 + self.tagLabel.frame.size.height, 150, 70)
+        self.joinButton.setTitle("join", forState: .Normal)
         let buttonImage = UIImage(named: "Join.png")
         self.joinButton.setBackgroundImage(buttonImage, forState: UIControlState.Normal);
         
@@ -195,6 +187,13 @@ class ToDetailViewController: UIViewController {
     }
     
      internal func onClickMyButton(sender: UIButton){
+        
+        // 参加を取り消ししようとしている場合
+        if (self.joinButton.titleLabel?.text != "join") {
+            self.cancelEvent()
+            return
+        }
+        
         // 選択したイベントの参加を認証する
         let context = LAContext();
         var error :NSError?
@@ -222,9 +221,52 @@ class ToDetailViewController: UIViewController {
     
     func successJoinEvent() {
         dispatch_async(dispatch_get_main_queue()) {
+            self.successAlert.showCloseButton = false
+            self.successAlert.addButton("はい") {
+                self.serverPost(2)
+                self.changeRegisterButton()
+            }
             self.successAlert.showSuccess("予約完了", subTitle: "イベントへの予約を受け付けました", closeButtonTitle: "はい", duration: 0)
         }
-        print("hoge")
+    }
+    
+    func cancelEvent() {
+        self.successAlert.showCloseButton = true
+        self.successAlert.addButton("はい") {
+            self.serverPost(1)
+            self.changeRegisterButton()
+        }
+        self.successAlert.showSuccess("予約キャンセル", subTitle: "イベントをキャンセルしますか？", closeButtonTitle: "いいえ", duration: 0)
+    }
+
+    func serverPost(index: Int) {
+        let eventID = appDelegate.jsonData!["id"].stringValue
+        // cancel:1  join:2
+        let urlString = "http://192.168.100.150/api/event?event=\(eventID)&state=\(index)"
+        let request = NSMutableURLRequest(URL: NSURL(string: urlString)!)
+        
+        request.HTTPMethod = "GET"
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { data, response, error in
+            if (error == nil) {
+                let result = NSString(data: data!, encoding: NSUTF8StringEncoding)!
+                print(result)
+            } else {
+                print(error)
+            }
+        })
+        task.resume()
+    }
+    
+    func changeRegisterButton() {
+        // 押されたのが参加取消の場合
+        if (self.joinButton.titleLabel?.text != "join") {
+            self.joinButton.setTitle("join", forState: .Normal)
+            self.joinButton.setBackgroundImage(UIImage(named: "Join.png"), forState: .Normal)
+            return
+        }
+        self.joinButton.setTitle("willJoin", forState: .Normal)
+        self.joinButton.setBackgroundImage(UIImage(named: "WillJoin.png"), forState: .Normal)
     }
 
     
