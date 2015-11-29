@@ -10,7 +10,8 @@ import UIKit
 import SwiftyJSON
 
 class EventSearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
-
+    var image: [UIImage] = []
+    var pic_num = 0
     
     // セクションの数
     let sectionNum = 1
@@ -28,7 +29,7 @@ class EventSearchViewController: UIViewController, UITableViewDelegate, UITableV
     private var myTableView: UITableView!
     
     //pictureURLを代入する変数
-    private var imageURL:NSURL!
+    private var imageURL: NSURL!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,7 +103,13 @@ class EventSearchViewController: UIViewController, UITableViewDelegate, UITableV
                 let tag = json[i]["tag"]
                 let pictureurl =  json[i]["pictureurl"]
                 //イベントの画像URLを代入
-                self.imageURL = NSURL(string: pictureurl.stringValue)
+//                self.imageURL = NSURL(string: pictureurl.stringValue)
+                let imageURL = NSURL(string: "\(pictureurl)")
+                let getImage: NSData = try!NSData(contentsOfURL: imageURL!, options: NSDataReadingOptions.DataReadingMappedIfSafe);
+                let img = UIImage(data: getImage)
+                
+                self.image.insert(UIImage(),atIndex: i)
+                self.image[i] = img!
                 let info = "\(eventname)\n\(date)\n\(place)\n\(tag)"
                 self.MyTableItems[i] = info
                 self.myTableJSON.append(json[i])
@@ -157,11 +164,11 @@ class EventSearchViewController: UIViewController, UITableViewDelegate, UITableV
         cell.textLabel!.text = "\(MyTableItems[indexPath.row])"
         
         //ImageData型に変更
-        let Imagedata = NSData(contentsOfURL: imageURL)
+        //let Imagedata = NSData(contentsOfURL: imageURL)
         //Imageを表示
-        let image: UIImage = UIImage(data: Imagedata!)!
         
-        cell.imageView!.image = image
+        cell.imageView!.image = image[pic_num];
+        pic_num += 1;
         
         return cell
     }
