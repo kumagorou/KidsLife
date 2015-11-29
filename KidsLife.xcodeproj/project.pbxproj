@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2118F2A51C09E0E800B51581 /* EventDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2118F2A41C09E0E800B51581 /* EventDetail.swift */; };
 		21A5F18E1C0A6D46004EFB4A /* medalget.png in Resources */ = {isa = PBXBuildFile; fileRef = 21A5F18D1C0A6D46004EFB4A /* medalget.png */; };
 		21A5F1921C0A6E32004EFB4A /* MyAccountIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 21A5F18F1C0A6E32004EFB4A /* MyAccountIcon.png */; };
 		21A5F1931C0A6E32004EFB4A /* MedalIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 21A5F1901C0A6E32004EFB4A /* MedalIcon.png */; };
@@ -15,6 +14,10 @@
 		21C3B3B91C0A2A7C00A65E86 /* ToDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C3B3B81C0A2A7C00A65E86 /* ToDetailViewController.swift */; };
 		25F194441C0A57250015F659 /* FavoriteMedal.png in Resources */ = {isa = PBXBuildFile; fileRef = 25F194421C0A57250015F659 /* FavoriteMedal.png */; };
 		25F194451C0A57250015F659 /* Yotsu.png in Resources */ = {isa = PBXBuildFile; fileRef = 25F194431C0A57250015F659 /* Yotsu.png */; };
+		25F194471C0A88F90015F659 /* WillJoin.png in Resources */ = {isa = PBXBuildFile; fileRef = 25F194461C0A88F90015F659 /* WillJoin.png */; };
+		25F194491C0A89140015F659 /* Join.png in Resources */ = {isa = PBXBuildFile; fileRef = 25F194481C0A89140015F659 /* Join.png */; };
+		25F1944B1C0A89630015F659 /* DidJoin.png in Resources */ = {isa = PBXBuildFile; fileRef = 25F1944A1C0A89630015F659 /* DidJoin.png */; };
+		25F1944D1C0A90080015F659 /* TitleBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 25F1944C1C0A90080015F659 /* TitleBackground.png */; };
 		25F3EC6E1C0991CD00233769 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F3EC6D1C0991CD00233769 /* AppDelegate.swift */; };
 		25F3EC731C0991CD00233769 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25F3EC711C0991CD00233769 /* Main.storyboard */; };
 		25F3EC751C0991CD00233769 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25F3EC741C0991CD00233769 /* Assets.xcassets */; };
@@ -57,7 +60,6 @@
 
 /* Begin PBXFileReference section */
 		1EFEA0AAAD8BF9D523EE33AB /* Pods_KidsLife.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KidsLife.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2118F2A41C09E0E800B51581 /* EventDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetail.swift; sourceTree = "<group>"; };
 		21A5F18D1C0A6D46004EFB4A /* medalget.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = medalget.png; sourceTree = "<group>"; };
 		21A5F18F1C0A6E32004EFB4A /* MyAccountIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyAccountIcon.png; sourceTree = "<group>"; };
 		21A5F1901C0A6E32004EFB4A /* MedalIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MedalIcon.png; sourceTree = "<group>"; };
@@ -65,6 +67,10 @@
 		21C3B3B81C0A2A7C00A65E86 /* ToDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDetailViewController.swift; sourceTree = "<group>"; };
 		25F194421C0A57250015F659 /* FavoriteMedal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FavoriteMedal.png; sourceTree = "<group>"; };
 		25F194431C0A57250015F659 /* Yotsu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Yotsu.png; sourceTree = "<group>"; };
+		25F194461C0A88F90015F659 /* WillJoin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WillJoin.png; sourceTree = "<group>"; };
+		25F194481C0A89140015F659 /* Join.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Join.png; sourceTree = "<group>"; };
+		25F1944A1C0A89630015F659 /* DidJoin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DidJoin.png; sourceTree = "<group>"; };
+		25F1944C1C0A90080015F659 /* TitleBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TitleBackground.png; sourceTree = "<group>"; };
 		25F3EC6A1C0991CD00233769 /* KidsLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KidsLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25F3EC6D1C0991CD00233769 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25F3EC721C0991CD00233769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -159,7 +165,6 @@
 				21C3B3B81C0A2A7C00A65E86 /* ToDetailViewController.swift */,
 				25F3ECA11C09926C00233769 /* ScheduleViewController.swift */,
 				25F3ECA31C09927500233769 /* CollectionViewController.swift */,
-				2118F2A41C09E0E800B51581 /* EventDetail.swift */,
 				DDE5D11A1C0A5B2000C82F38 /* GetMedalImage.swift */,
 				DD40C0841C0A147B000C14F0 /* figure */,
 			);
@@ -204,6 +209,10 @@
 		DD40C0841C0A147B000C14F0 /* figure */ = {
 			isa = PBXGroup;
 			children = (
+				25F1944C1C0A90080015F659 /* TitleBackground.png */,
+				25F1944A1C0A89630015F659 /* DidJoin.png */,
+				25F194481C0A89140015F659 /* Join.png */,
+				25F194461C0A88F90015F659 /* WillJoin.png */,
 				21A5F18F1C0A6E32004EFB4A /* MyAccountIcon.png */,
 				21A5F1901C0A6E32004EFB4A /* MedalIcon.png */,
 				21A5F1911C0A6E32004EFB4A /* EventIcon.png */,
@@ -327,17 +336,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25F1944D1C0A90080015F659 /* TitleBackground.png in Resources */,
 				21A5F1921C0A6E32004EFB4A /* MyAccountIcon.png in Resources */,
 				DDE5D1161C0A40B400C82F38 /* FavoriteIcon.png in Resources */,
+				25F194471C0A88F90015F659 /* WillJoin.png in Resources */,
 				25F3EC781C0991CD00233769 /* LaunchScreen.storyboard in Resources */,
 				DD40C08C1C0A14A2000C14F0 /* Medal_2.png in Resources */,
 				25F194441C0A57250015F659 /* FavoriteMedal.png in Resources */,
 				DD40C08E1C0A154F000C14F0 /* Medal_3.png in Resources */,
 				DD40C0871C0A148F000C14F0 /* Background-1.png in Resources */,
 				21A5F18E1C0A6D46004EFB4A /* medalget.png in Resources */,
+				25F194491C0A89140015F659 /* Join.png in Resources */,
 				25F3EC751C0991CD00233769 /* Assets.xcassets in Resources */,
 				25F3EC731C0991CD00233769 /* Main.storyboard in Resources */,
 				21A5F1941C0A6E32004EFB4A /* EventIcon.png in Resources */,
+				25F1944B1C0A89630015F659 /* DidJoin.png in Resources */,
 				25F194451C0A57250015F659 /* Yotsu.png in Resources */,
 				DDE5D1171C0A40B400C82F38 /* Icon.png in Resources */,
 				21A5F1931C0A6E32004EFB4A /* MedalIcon.png in Resources */,
@@ -415,7 +428,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				21C3B3B91C0A2A7C00A65E86 /* ToDetailViewController.swift in Sources */,
-				2118F2A51C09E0E800B51581 /* EventDetail.swift in Sources */,
 				25F3ECA41C09927500233769 /* CollectionViewController.swift in Sources */,
 				DDE5D11B1C0A5B2000C82F38 /* GetMedalImage.swift in Sources */,
 				25F3ECA21C09926C00233769 /* ScheduleViewController.swift in Sources */,

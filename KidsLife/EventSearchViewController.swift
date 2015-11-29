@@ -120,7 +120,7 @@ class EventSearchViewController: UIViewController, UITableViewDelegate, UITableV
         task.resume()
         
         while isInLoad {
-            usleep(10)
+            usleep(1)
         }
     }
     
