@@ -12,6 +12,7 @@
 		21A5F1931C0A6E32004EFB4A /* MedalIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 21A5F1901C0A6E32004EFB4A /* MedalIcon.png */; };
 		21A5F1941C0A6E32004EFB4A /* EventIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 21A5F1911C0A6E32004EFB4A /* EventIcon.png */; };
 		21C3B3B91C0A2A7C00A65E86 /* ToDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C3B3B81C0A2A7C00A65E86 /* ToDetailViewController.swift */; };
+		2548745F1C0AC1D600437C73 /* GreenMedal.png in Resources */ = {isa = PBXBuildFile; fileRef = 2548745E1C0AC1D600437C73 /* GreenMedal.png */; };
 		25F194441C0A57250015F659 /* FavoriteMedal.png in Resources */ = {isa = PBXBuildFile; fileRef = 25F194421C0A57250015F659 /* FavoriteMedal.png */; };
 		25F194451C0A57250015F659 /* Yotsu.png in Resources */ = {isa = PBXBuildFile; fileRef = 25F194431C0A57250015F659 /* Yotsu.png */; };
 		25F194471C0A88F90015F659 /* WillJoin.png in Resources */ = {isa = PBXBuildFile; fileRef = 25F194461C0A88F90015F659 /* WillJoin.png */; };
@@ -65,6 +66,7 @@
 		21A5F1901C0A6E32004EFB4A /* MedalIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MedalIcon.png; sourceTree = "<group>"; };
 		21A5F1911C0A6E32004EFB4A /* EventIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EventIcon.png; sourceTree = "<group>"; };
 		21C3B3B81C0A2A7C00A65E86 /* ToDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDetailViewController.swift; sourceTree = "<group>"; };
+		2548745E1C0AC1D600437C73 /* GreenMedal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GreenMedal.png; sourceTree = "<group>"; };
 		25F194421C0A57250015F659 /* FavoriteMedal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FavoriteMedal.png; sourceTree = "<group>"; };
 		25F194431C0A57250015F659 /* Yotsu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Yotsu.png; sourceTree = "<group>"; };
 		25F194461C0A88F90015F659 /* WillJoin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WillJoin.png; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 		DD40C0841C0A147B000C14F0 /* figure */ = {
 			isa = PBXGroup;
 			children = (
+				2548745E1C0AC1D600437C73 /* GreenMedal.png */,
 				25F1944C1C0A90080015F659 /* TitleBackground.png */,
 				25F1944A1C0A89630015F659 /* DidJoin.png */,
 				25F194481C0A89140015F659 /* Join.png */,
@@ -300,6 +303,12 @@
 				TargetAttributes = {
 					25F3EC691C0991CD00233769 = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = S3UNBN5SS6;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					25F3EC7D1C0991CD00233769 = {
 						CreatedOnToolsVersion = 7.1;
@@ -352,6 +361,7 @@
 				21A5F1941C0A6E32004EFB4A /* EventIcon.png in Resources */,
 				25F1944B1C0A89630015F659 /* DidJoin.png in Resources */,
 				25F194451C0A57250015F659 /* Yotsu.png in Resources */,
+				2548745F1C0AC1D600437C73 /* GreenMedal.png in Resources */,
 				DDE5D1171C0A40B400C82F38 /* Icon.png in Resources */,
 				21A5F1931C0A6E32004EFB4A /* MedalIcon.png in Resources */,
 				DD40C0881C0A148F000C14F0 /* Bar.png in Resources */,
@@ -577,10 +587,13 @@
 			baseConfigurationReference = BF2B8D0CB1CA719DF6DF3139 /* Pods-KidsLife.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = KidsLife/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = testApp.KidsLife;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -589,10 +602,13 @@
 			baseConfigurationReference = 8A371B3553A2D5791750AD0F /* Pods-KidsLife.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = KidsLife/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = testApp.KidsLife;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

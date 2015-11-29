@@ -45,10 +45,14 @@ class CollectionViewController: UIViewController, MedalImageTouchScrollViewDeleg
         scrollView.userInteractionEnabled = true
         self.view.addSubview(scrollView)
         
-        
         var medalImageArray = getMedal.getImageData()
         medalImage = medalImageArray.image
         medalText = medalImageArray.text
+        var delegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        if (delegate.greenMedalFlag) {
+            medalImage.append(UIImage(named: "GreenMedal.png")!)
+            medalText.append("秘密基地で楽しんだメダル")
+        }
         for i in 0...10{
             plate = UIImageView(frame: CGRectMake(0, CGFloat(155 * i), UIScreen.mainScreen().bounds.size.width,UIScreen.mainScreen().bounds.size.height / 13))
             let plateImage = UIImage(named: "Bar.png")
