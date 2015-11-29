@@ -17,6 +17,7 @@ class CollectionViewController: UIViewController, MedalImageTouchScrollViewDeleg
     var selectNumber: Int?
     var getMedal = GetMedal()
     var textArray: [String] = ["お絵描き大会参加のメダル", "お絵かき大会優勝のメダル", "山登り参加のメダル"]
+    var medalImageArray = [UIImage]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +45,7 @@ class CollectionViewController: UIViewController, MedalImageTouchScrollViewDeleg
         
         
 
-        var medalImageArray = getMedal.getImageData()
+        self.medalImageArray = getMedal.getImageData()
         for i in 0...10{
             plate = UIImageView(frame: CGRectMake(0, CGFloat(155 * i), UIScreen.mainScreen().bounds.size.width,UIScreen.mainScreen().bounds.size.height / 13))
             let plateImage = UIImage(named: "Bar.png")
@@ -79,6 +80,20 @@ class CollectionViewController: UIViewController, MedalImageTouchScrollViewDeleg
                 action in print("push OK!")
                 print(number)
                 self.getMedal.sendFavoriteMedal(number + 1)
+                
+                let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                let tabBarVC = delegate.myTabBarController
+                let navigationVCS = tabBarVC.viewControllers // 複数のnavigationControllerを取得
+                print("VCs = \(navigationVCS)")
+                // 1つのnavigationControllerを取得
+                if let navigationVC = tabBarVC.viewControllers![0] as? UINavigationController {
+                    // その中のMyPageViewControllerを取得してお気に入りメダルを更新する
+                    if let myPageVC = navigationVC.viewControllers[0] as? MyPageViewController {
+                        myPageVC.updateImage(self.medalImageArray[number])
+                    }
+                }
+                
+                
             }
             let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel){
                 action in print("Puch Cancel")

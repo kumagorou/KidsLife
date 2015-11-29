@@ -20,7 +20,8 @@ class MyPageViewController: UIViewController {
     
     var profileView = UIView()
     
-    let favoriteMedalImageView = UIImageView(image: UIImage(named: "FavoriteMedal.png"))
+    let favoriteMedalImageView = UIImageView()
+    var myMedalImage = UIImage(named: "FavoriteMedal.png")
     let medalImageViewWidth: CGFloat = (168 / 2)
     let medalImageViewHeight: CGFloat = (313 / 2)
 
@@ -84,7 +85,7 @@ class MyPageViewController: UIViewController {
         let imageViewX = (self.screenSize.width / 2) - (self.medalImageViewWidth / 2)
         let imageViewY = (button.frame.size.height / 2) - 20
         self.favoriteMedalImageView.frame = CGRectMake(imageViewX, imageViewY, self.medalImageViewWidth, self.medalImageViewHeight)
-        self.favoriteMedalImageView.image = UIImage(named: "FavoriteMedal.png")
+        self.favoriteMedalImageView.image = self.myMedalImage
         print(self.favoriteMedalImageView.frame)
         self.profileView.addSubview(self.favoriteMedalImageView)
         
@@ -101,8 +102,8 @@ class MyPageViewController: UIViewController {
         self.profileView.addSubview(nameLabel)
     }
     
-    func updateImage() {
-        print(__FUNCTION__)
+    func updateImage(image: UIImage) {
+        self.myMedalImage = image
     }
     
     required init?(coder aDecoder: NSCoder) {
