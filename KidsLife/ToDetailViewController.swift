@@ -36,6 +36,7 @@ extension UIImage{
 class ToDetailViewController: UIViewController {
     
     let successAlert = SCLAlertView()
+    let alertGetMedal = SCLAlertView()
     let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     let horizontalMargin: CGFloat = (UIScreen.mainScreen().bounds.size.width) / 20
@@ -201,7 +202,7 @@ class ToDetailViewController: UIViewController {
         let buttonImage = UIImage(named: "medalget.png")
         self.medalGetButton.setBackgroundImage(buttonImage, forState: UIControlState.Normal);
         
-        self.medalGetButton.addTarget(self, action: "getMedal:", forControlEvents: .TouchUpInside)
+        self.medalGetButton.addTarget(self, action: "getMedal", forControlEvents: .TouchUpInside)
         self.scrollView.addSubview(self.medalGetButton)
     }
     
@@ -232,12 +233,12 @@ class ToDetailViewController: UIViewController {
     }
     
     func getMedalShowAlert() {
-        let alert = SCLAlertView()
-        alert.showCloseButton = false
-        alert.addButton("やったー") {
+        
+        alertGetMedal.showCloseButton = false
+        alertGetMedal.addButton("やったー") {
         self.appDelegate.greenMedalFlag = true
         }
-        alert.showSuccess("メダルゲット！", subTitle: "", closeButtonTitle: "hoge", duration: 0)
+        alertGetMedal.showSuccess("メダルゲット！", subTitle: "", closeButtonTitle: "hoge", duration: 0)
     }
     
      internal func onClickMyButton(sender: UIButton){

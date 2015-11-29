@@ -33,7 +33,7 @@ class MedalTouchScrollView: UIScrollView {
         
         //どのタグのObjectがとれたか
         for touch: AnyObject in touches {
-            var t: UITouch = touch as! UITouch
+            let t: UITouch = touch as! UITouch
             self.medalDelegate.modalChanged(Int(t.view!.tag - 1))
         }
         
