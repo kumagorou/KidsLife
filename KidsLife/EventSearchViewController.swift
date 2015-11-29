@@ -161,7 +161,7 @@ class EventSearchViewController: UIViewController, UITableViewDelegate, UITableV
         //cell.textLabel?.numberOfLines = 4
         //let item = self.items[indexPath.row] as MWFeedItem
         //cell.textLabel?.text = cell.title
-        cell.textLabel?.font = UIFont.systemFontOfSize(12.0)
+        cell.textLabel?.font = UIFont.systemFontOfSize(15.0)
         cell.textLabel?.numberOfLines = 0
         
         // Cellに値を設定する.
