@@ -19,6 +19,7 @@ class EventSearchViewController: UIViewController, UITableViewDelegate, UITableV
     let urlString = "http://192.168.100.150/api/event" //適当なjsonファイルへのパス
     // セルの中身
     var MyTableItems = NSMutableArray()
+    var myTableJSON = [JSON]()
     // ロード中かどうか
     var isInLoad = false
     // 選択されたセルの列番号
@@ -94,6 +95,7 @@ class EventSearchViewController: UIViewController, UITableViewDelegate, UITableV
             for var i = 0; i < json.count; i++ {
                 //デバック用
                 //print(json.count)
+                //let event_id = json[i]["event_id"]
                 let eventname = json[i]["event_name"]
                 let date = json[i]["date"]
                 let place = json[i]["place"]
@@ -103,6 +105,7 @@ class EventSearchViewController: UIViewController, UITableViewDelegate, UITableV
                 self.imageURL = NSURL(string: pictureurl.stringValue)
                 let info = "\(eventname)\n\(date)\n\(place)\n\(tag)"
                 self.MyTableItems[i] = info
+                self.myTableJSON.append(json[i])
             }
             // ロードが完了したので、falseに
             self.isInLoad = false
@@ -125,7 +128,8 @@ class EventSearchViewController: UIViewController, UITableViewDelegate, UITableV
         print("Num: \(indexPath.row)")
         print("Value: \(MyTableItems[indexPath.row])")
         let appDegegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDegegate.blendName = "\(MyTableItems[indexPath.row])"
+        //appDegegate.blendName! = Int(cellNum)
+        appDegegate.jsonData = self.myTableJSON[indexPath.row]
         let detailViewController = ToDetailViewController()
         self.navigationController?.pushViewController(detailViewController, animated: true)
         }

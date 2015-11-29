@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var blendName: String?
+    var jsonData: JSON?
     
     var window: UIWindow?
     

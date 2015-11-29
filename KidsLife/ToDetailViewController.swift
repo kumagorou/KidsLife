@@ -8,19 +8,102 @@
 
 import UIKit
 import LocalAuthentication
+import SwiftyJSON
+
+extension UIImage{
+    
+    // Resizeするクラスメソッド.
+    func ResizeÜIImage(width : CGFloat, height : CGFloat)-> UIImage!{
+        
+        // 指定された画像の大きさのコンテキストを用意.
+        UIGraphicsBeginImageContext(CGSizeMake(width, height))
+        
+        // コンテキストに自身に設定された画像を描画する.
+        self.drawInRect(CGRectMake(0, 0, width, height))
+        
+        // コンテキストからUIImageを作る.
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        
+        // コンテキストを閉じる.
+        UIGraphicsEndImageContext()
+        
+        return newImage
+    }
+    
+}
 
 class ToDetailViewController: UIViewController {
     
     private var myButton: UIButton!
+    //pictureURLを代入する変数
+    private var picture_name:NSURL!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.whiteColor()
         let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        print("hoge = \(appDelegate.blendName!)")
+        //print("hoge = \(appDelegate.blendName!)")
         
+        //print("json = \(appDelegate.jsonData")
+        print (appDelegate.jsonData!["id"])
+        // Labelを作成.
+        let myLabel: UILabel = UILabel(frame: CGRectMake(0,0,200,50))
+        
+        // ラベルの背景をオレンジ色にする.
+        myLabel.backgroundColor = UIColor.orangeColor()
+        
+        // 枠を丸くする.
+        myLabel.layer.masksToBounds = true
+        
+        // コーナーの半径.
+        myLabel.layer.cornerRadius = 20.0
+        
+        // Labelに文字を代入.
+        let event_name = appDelegate.jsonData!["event_name"].stringValue
+        myLabel.text = event_name
+        
+        // 文字の色を白にする.
+        myLabel.textColor = UIColor.whiteColor()
+        
+        // 文字の影の色をグレーにする.
+        myLabel.shadowColor = UIColor.grayColor()
+        
+        // Textを中央寄せにする.
+        myLabel.textAlignment = NSTextAlignment.Center
+        
+        // 配置する座標を設定する.
+        myLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: view.bounds.height/2.2)
+        
+        //let url = NSURL(string: self.urlString)!
+        // UIImageに文字を代入.
+        picture_name = NSURL(string : appDelegate.jsonData!["pictureurl"].stringValue)
+        //NSURLに変更
+        //self.url = NSURL(string: picture_name.stringValue)
+        
+        //ImageData型に変更
+        let Imagedata = NSData(contentsOfURL: picture_name)
+        //Imageを表示
+        let myImage = UIImage(data: (Imagedata)!)!
+        
+        // リサイズ後のUIImageを用意.
+        let resize = myImage.ResizeÜIImage(self.view.frame.midX, height: self.view.frame.midY/2)
+        
+        // UIImageViewにリサイズ後のUIImageを設定.
+        let myImageView = UIImageView(image: resize)
+        
+        myImageView.layer.position = CGPointMake(self.view.frame.midX, self.view.frame.midY/2)
+        
+        self.view.addSubview(myImageView)
+        
+        // Viewの背景色を青にする.
+        self.view.backgroundColor = UIColor.cyanColor()
+        
+        // ViewにLabelを追加.
+        self.view.addSubview(myLabel)
+
         myButton = UIButton()
         
-        myButton.frame = CGRectMake(0, 0, 200, 60)
+        myButton.frame = CGRectMake(0, 0, 200, 80)
         let buttonImage:UIImage = UIImage(named: "medalget.png")!;
         myButton.setBackgroundImage(buttonImage, forState: UIControlState.Normal);
         myButton.layer.position = CGPoint(x: self.view.frame.width/2, y:self.view.frame.height / 1.2)
