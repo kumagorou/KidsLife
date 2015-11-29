@@ -16,7 +16,7 @@ class EventSearchViewController: UIViewController, UITableViewDelegate, UITableV
     // セクションの数
     let sectionNum = 1
     // 1セクションあたりのセルの行数
-    let cellNum = 5
+    let cellNum = 10
     let urlString = "http://192.168.100.150/api/event" //適当なjsonファイルへのパス
     // セルの中身
     var MyTableItems = NSMutableArray()
