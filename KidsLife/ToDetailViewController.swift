@@ -9,6 +9,7 @@
 import UIKit
 import LocalAuthentication
 import SwiftyJSON
+import SCLAlertView
 
 extension UIImage{
     
@@ -34,87 +35,167 @@ extension UIImage{
 
 class ToDetailViewController: UIViewController {
     
-    private var myButton: UIButton!
-    //pictureURLを代入する変数
-    private var picture_name:NSURL!
+    let successAlert = SCLAlertView()
+    let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    
+    let horizontalMargin: CGFloat = (UIScreen.mainScreen().bounds.size.width) / 20
+    var urlString = "http://192.168.100.150/api/event?id="
+    var isInLoad = false
+    
+    let eventLabel = UILabel()
+    var eventName = ""
+    let capacityLabel = UILabel()
+    var capacity = ""
+    let payLabel = UILabel()
+    var pay = ""
+    let dateLabel = UILabel()
+    var date = ""
+    let placeLabel = UILabel()
+    var place = ""
+    let tagLabel = UILabel()
+    var tag = ""
+
+    var eventImage = UIImageView()
+    var scrollView = UIScrollView()
+    var joinButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.whiteColor()
-        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        //print("hoge = \(appDelegate.blendName!)")
-        
-        //print("json = \(appDelegate.jsonData")
-        print (appDelegate.jsonData!["id"])
-        // Labelを作成.
-        let myLabel: UILabel = UILabel(frame: CGRectMake(0,0,200,50))
-        
-        // ラベルの背景をオレンジ色にする.
-        myLabel.backgroundColor = UIColor.orangeColor()
-        
-        // 枠を丸くする.
-        myLabel.layer.masksToBounds = true
-        
-        // コーナーの半径.
-        myLabel.layer.cornerRadius = 20.0
-        
-        // Labelに文字を代入.
-        let event_name = appDelegate.jsonData!["event_name"].stringValue
-        myLabel.text = event_name
-        
-        // 文字の色を白にする.
-        myLabel.textColor = UIColor.whiteColor()
-        
-        // 文字の影の色をグレーにする.
-        myLabel.shadowColor = UIColor.grayColor()
-        
-        // Textを中央寄せにする.
-        myLabel.textAlignment = NSTextAlignment.Center
-        
-        // 配置する座標を設定する.
-        myLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: view.bounds.height/2.2)
-        
-        //let url = NSURL(string: self.urlString)!
-        // UIImageに文字を代入.
-        picture_name = NSURL(string : appDelegate.jsonData!["pictureurl"].stringValue)
-        //NSURLに変更
-        //self.url = NSURL(string: picture_name.stringValue)
-        
-        //ImageData型に変更
-        let Imagedata = NSData(contentsOfURL: picture_name)
-        //Imageを表示
-        let myImage = UIImage(data: (Imagedata)!)!
-        
-        // リサイズ後のUIImageを用意.
-        let resize = myImage.ResizeÜIImage(self.view.frame.midX, height: self.view.frame.midY/2)
-        
-        // UIImageViewにリサイズ後のUIImageを設定.
-        let myImageView = UIImageView(image: resize)
-        
-        myImageView.layer.position = CGPointMake(self.view.frame.midX, self.view.frame.midY/2)
-        
-        self.view.addSubview(myImageView)
-        
-        // Viewの背景色を青にする.
-        self.view.backgroundColor = UIColor.cyanColor()
-        
-        // ViewにLabelを追加.
-        self.view.addSubview(myLabel)
+        self.view.backgroundColor = UIColor(red: 242 / 255, green: 242 / 255, blue: 242 / 255, alpha: 1)
 
-        myButton = UIButton()
+        self.urlString = "\(self.urlString)\(appDelegate.jsonData!["id"])"
+        self.getEventDetail()
+
+        self.createScrollView()
+        self.createEventImage()
+        self.createLabels()
+        self.createJoinButton()
+    }
+    
+    func getEventDetail() {
+        self.isInLoad = true
+        let url = NSURL(string: self.urlString)!
+        //print(url);
         
-        myButton.frame = CGRectMake(0, 0, 200, 80)
-        let buttonImage:UIImage = UIImage(named: "medalget.png")!;
-        myButton.setBackgroundImage(buttonImage, forState: UIControlState.Normal);
-        myButton.layer.position = CGPoint(x: self.view.frame.width/2, y:self.view.frame.height / 1.2)
-        //myButton.backgroundColor = UIColor.redColor()
+        let task = NSURLSession.sharedSession().dataTaskWithURL(url, completionHandler: {data, response, error in
+            
+            // リソースの取得が終わると、ここに書いた処理が実行される
+            var json = JSON(data: data!)
+            //デバック用
+            //print(json)
+            
+            // 各セルに情報を突っ込む
+            //適当なJSONファイルが持っている値
+            //var index = 0;
+            for var i = 0; i < json.count; i++ {
+                self.eventName = json[i]["event_name"].stringValue
+                self.capacity = json[i]["capacity"].stringValue
+                self.pay = json[i]["pay"].stringValue
+                self.date = json[i]["date"].stringValue
+                self.place = json[i]["place"].stringValue
+                self.tag = json[i]["tag"].stringValue
+            }
+            // ロードが完了したので、falseに
+            self.isInLoad = false
+        })
+        task.resume()
         
-        myButton.addTarget(self, action: "onClickMyButton:", forControlEvents: .TouchUpInside)
-        // ボタンをViewに追加する.
-        self.view.addSubview(myButton)
+        while isInLoad {
+            usleep(2)
+        }
+    }
+    
+    func createEventImage() {
+        let imageViewWidth = UIScreen.mainScreen().bounds.size.width
+        let imageViewHeight = (UIScreen.mainScreen().bounds.size.height) / 2
+
+        self.eventImage.frame = CGRectMake(0, 0, imageViewWidth, imageViewHeight)
+        print(self.eventImage.frame)
+        
+        
+        if let url = NSURL(string: self.appDelegate.jsonData!["pictureurl"].stringValue) {
+            let image = UIImage(data: NSData(contentsOfURL: url)!)
+            self.eventImage.image = image
+        }
+        print(self.eventImage.frame)
+        self.view.addSubview(self.eventImage)
+    }
+    
+    func createScrollView() {
+        let viewWidth = UIScreen.mainScreen().bounds.size.width
+        let viewHeight = UIScreen.mainScreen().bounds.size.height
+        self.scrollView.frame = CGRectMake(0, 0, viewWidth, viewHeight)
+        self.view.addSubview(self.scrollView)
+    }
+    
+    func createLabels() {
+//        let backgroundView = UIImageView(image: UIImage(named: "TitleBackground.png"))
+//        
+//        backgroundView.frame = CGRectMake(0, UIScreen.mainScreen().bounds.size.height / 2 - (44 + 15), UIScreen.mainScreen().bounds.size.width, 50)
+//        
+//        self.scrollView.addSubview(backgroundView)
+//        
+        let labelSize: CGFloat = 25
+//        self.eventLabel.frame = CGRectMake(0, (backgroundView.frame.size.height / 2) - 25, UIScreen.mainScreen().bounds.size.width, 50)
+        self.eventLabel.frame = CGRectMake(0, (UIScreen.mainScreen().bounds.size.height / 2) - (44 + 15), UIScreen.mainScreen().bounds.size.width, 50)
+        self.eventLabel.layer.cornerRadius = 1.0
+//        self.eventLabel.backgroundColor = UIColor.redColor()
+        self.eventLabel.font = UIFont(name: "Helvetica", size: 25)
+        self.eventLabel.textAlignment = .Center
+        self.scrollView.addSubview(self.eventLabel)
+//        backgroundView.addSubview(self.eventLabel)
+        
+        
+        self.capacityLabel.frame = CGRectMake(0, self.eventLabel.frame.origin.y + self.horizontalMargin + labelSize * 2, UIScreen.mainScreen().bounds.width, labelSize)
+        self.capacityLabel.font = UIFont(name: "Helvetica", size: 20)
+        self.capacityLabel.textAlignment = .Center
+        self.scrollView.addSubview(self.capacityLabel)
+        
+        self.payLabel.frame = CGRectMake(0, self.capacityLabel.frame.origin.y + self.horizontalMargin + labelSize, UIScreen.mainScreen().bounds.width, labelSize)
+        self.payLabel.font = UIFont(name: "Helvetica", size: 20)
+        self.payLabel.textAlignment = .Center
+        self.scrollView.addSubview(self.payLabel)
+        
+        self.dateLabel.frame = CGRectMake(0, self.payLabel.frame.origin.y + self.horizontalMargin + labelSize, UIScreen.mainScreen().bounds.width, labelSize)
+        self.dateLabel.font = UIFont(name: "Helvetica", size: 20)
+        self.dateLabel.textAlignment = .Center
+        self.scrollView.addSubview(self.dateLabel)
+        
+        self.placeLabel.frame = CGRectMake(0, self.dateLabel.frame.origin.y + self.horizontalMargin + labelSize, UIScreen.mainScreen().bounds.width, labelSize)
+        self.placeLabel.font = UIFont(name: "Helvetica", size: 20)
+        self.placeLabel.textAlignment = .Center
+        self.scrollView.addSubview(self.placeLabel)
+        
+        self.tagLabel.frame = CGRectMake(0, self.placeLabel.frame.origin.y + self.horizontalMargin + labelSize, UIScreen.mainScreen().bounds.width, labelSize)
+        self.tagLabel.font = UIFont(name: "Helvetica", size: 20)
+        self.tagLabel.textAlignment = .Center
+        self.scrollView.addSubview(self.tagLabel)
+        
+        
+        self.scrollView.contentSize = CGSizeMake(0, self.tagLabel.frame.origin.y + 200)
+        
+        dispatch_async(dispatch_get_main_queue()) {
+            // UIの更新
+            self.eventLabel.text = self.eventName
+            self.capacityLabel.text = "人数 : \(self.capacity)名"
+            self.payLabel.text = "参加費 : \(self.pay)円"
+            self.dateLabel.text = "日付 : \(self.date)"
+            self.placeLabel.text = "場所 : \(self.place)"
+            self.tagLabel.text = "ジャンル : \(self.tag)"
+        }
+    }
+    
+    func createJoinButton() {
+        self.joinButton.frame = CGRectMake((UIScreen.mainScreen().bounds.size.width / 2) - 75, self.tagLabel.frame.origin.y + self.horizontalMargin * 2 + self.tagLabel.frame.size.height, 150, 70)
+        let buttonImage = UIImage(named: "Join.png")
+        self.joinButton.setBackgroundImage(buttonImage, forState: UIControlState.Normal);
+        
+        self.joinButton.addTarget(self, action: "onClickMyButton:", forControlEvents: .TouchUpInside)
+        self.scrollView.addSubview(self.joinButton)
     }
     
      internal func onClickMyButton(sender: UIButton){
+        // 選択したイベントの参加を認証する
         let context = LAContext();
         var error :NSError?
         // Touch ID が利用できるデバイスか確認する
@@ -126,9 +207,7 @@ class ToDetailViewController: UIViewController {
                 reply: {
                     success, error in
                     if (success) {
-                        // 指紋認証成功
-                        NSLog("Success")
-                        
+                        self.successJoinEvent()
                     
                     } else {
                         // 指紋認証失敗
@@ -139,6 +218,13 @@ class ToDetailViewController: UIViewController {
             // Touch ID が利用できない場合
             NSLog("An Error Occurred: \(error)")
         }
+    }
+    
+    func successJoinEvent() {
+        dispatch_async(dispatch_get_main_queue()) {
+            self.successAlert.showSuccess("予約完了", subTitle: "イベントへの予約を受け付けました", closeButtonTitle: "はい", duration: 0)
+        }
+        print("hoge")
     }
 
     
