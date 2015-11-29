@@ -17,8 +17,9 @@ class GetMedal{
     var isInLoad = false
     
     var imageArray: [UIImage] = []
+    var imageText: [String] = []
     
-    func getImageData() -> [UIImage]{
+    func getImageData() -> (image: [UIImage], text: [String]){
         self.isInLoad = true
         let url = NSURL(string: self.urlString)!
         
@@ -27,12 +28,14 @@ class GetMedal{
             
             for i in 0..<json.count{
                 let imageURL = json[i]["image"]
+                let medalText = json[i]["text"]
                 let medalImage = NSURL(string: "\(imageURL)")
                 let getImage :NSData = try!NSData(contentsOfURL: medalImage!,options: NSDataReadingOptions.DataReadingMappedIfSafe);
                 let img = UIImage(data: getImage)
                 
                 self.imageArray.insert(UIImage(), atIndex: i)
                 self.imageArray[i] = img!
+                self.imageText.append(medalText.stringValue)
                 
             }
             //ロードの終了
@@ -43,7 +46,7 @@ class GetMedal{
         while isInLoad{
             usleep(10)
         }
-        return imageArray
+        return (imageArray, imageText)
     }
     func sendFavoriteMedal(number: Int){
         let urlString = "http://192.168.100.150/api/medal?favorite_id=\(number)&user_id=1"

@@ -16,8 +16,10 @@ class CollectionViewController: UIViewController, MedalImageTouchScrollViewDeleg
     var scrollView = MedalTouchScrollView()
     var selectNumber: Int?
     var getMedal = GetMedal()
-    var textArray: [String] = ["お絵描き大会参加のメダル", "お絵かき大会優勝のメダル", "山登り参加のメダル"]
     var medalImageArray = [UIImage]()
+    
+    var medalImage: [UIImage] = []
+    var medalText: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,16 +46,17 @@ class CollectionViewController: UIViewController, MedalImageTouchScrollViewDeleg
         self.view.addSubview(scrollView)
         
         
-
-        self.medalImageArray = getMedal.getImageData()
+        var medalImageArray = getMedal.getImageData()
+        medalImage = medalImageArray.image
+        medalText = medalImageArray.text
         for i in 0...10{
             plate = UIImageView(frame: CGRectMake(0, CGFloat(155 * i), UIScreen.mainScreen().bounds.size.width,UIScreen.mainScreen().bounds.size.height / 13))
             let plateImage = UIImage(named: "Bar.png")
             plate.image = plateImage
             scrollView.addSubview(plate)
-            for i in 0..<medalImageArray.count{
+            for i in 0..<medalImage.count{
                 medal = UIImageView(frame: CGRectMake( 25 + CGFloat(120 * (i % 3)), 21 + CGFloat(155 * Int(i / 3)), 80, 150))
-                medal.image = medalImageArray[i]
+                medal.image = medalImage[i]
                 medal.userInteractionEnabled = true
                 medal.layer.masksToBounds = true
                 medal.tag = i + 1
@@ -75,7 +78,7 @@ class CollectionViewController: UIViewController, MedalImageTouchScrollViewDeleg
         if let number = selectNumber{
             
             
-            let alertController = UIAlertController(title: textArray[number], message: "お気に入りにしますか？", preferredStyle: .Alert)
+            let alertController = UIAlertController(title: medalText[number], message: "お気に入りにしますか？", preferredStyle: .Alert)
             let otherAction = UIAlertAction(title: "OK", style: .Default){
                 action in print("push OK!")
                 print(number)
@@ -89,7 +92,7 @@ class CollectionViewController: UIViewController, MedalImageTouchScrollViewDeleg
                 if let navigationVC = tabBarVC.viewControllers![0] as? UINavigationController {
                     // その中のMyPageViewControllerを取得してお気に入りメダルを更新する
                     if let myPageVC = navigationVC.viewControllers[0] as? MyPageViewController {
-                        myPageVC.updateImage(self.medalImageArray[number])
+                        myPageVC.updateImage(self.medalImage[number])
                     }
                 }
                 
