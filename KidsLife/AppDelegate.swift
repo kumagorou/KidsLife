@@ -11,6 +11,8 @@ import SwiftyJSON
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    var greenMedalFlag = false
 
     var blendName: String?
     var jsonData: JSON?
@@ -42,7 +44,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if (NSUserDefaults.standardUserDefaults().objectForKey("name") != nil) {
             // rootViewControllerをtabBarControllerにする
             self.window?.rootViewController = self.myTabBarController
+            return true
         }
+        
+        // アラート表示の許可をもらう.
+        let setting = UIUserNotificationSettings(forTypes: [.Sound, .Alert], categories: nil)
+        UIApplication.sharedApplication().registerUserNotificationSettings(setting)
         
         return true
     }
@@ -53,6 +60,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.eventSearchVC.tabBarItem = UITabBarItem(title: "イベント",image: UIImage(named: "EventIcon.png"), tag: 2)
         //self.scheduleVC.tabBarItem = UITabBarItem(tabBarSystemItem: .Featured, tag: 3)
         self.collectionVC.tabBarItem = UITabBarItem(title: "コレクション",image: UIImage(named:"MedalIcon.png"), tag: 3)
+    }
+    
+    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+        // foregroundにいたとき        
+        
+        // アプリ起動中(フォアグラウンド)に通知が届いた場合
+        if(application.applicationState == UIApplicationState.Active) {
+            // ここに処理を書く
+            print("foreground")
+        }
+        
+//        // アプリがバックグラウンドにある状態で通知が届いた場合
+        if(application.applicationState == UIApplicationState.Inactive) {
+            // ここに処理を書く
+            print("background")
+        }
+    }
+    
+    func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, completionHandler: () -> Void) {
+        // backgroundから復帰した時
     }
 
     func applicationWillResignActive(application: UIApplication) {

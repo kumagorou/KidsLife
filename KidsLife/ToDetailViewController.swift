@@ -54,10 +54,12 @@ class ToDetailViewController: UIViewController {
     var place = ""
     let tagLabel = UILabel()
     var tag = ""
+    var state = "" // 1:notJoin 2:Joining
 
     var eventImage = UIImageView()
     var scrollView = UIScrollView()
     var joinButton = UIButton()
+    var medalGetButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,7 +71,14 @@ class ToDetailViewController: UIViewController {
         self.createScrollView()
         self.createEventImage()
         self.createLabels()
-        self.createJoinButton()
+        
+        // 予約ボタンを表示
+        if (self.state == "1") {
+            self.createJoinButton()
+            return
+        }
+        
+        self.createMedalGetButton()
     }
     
     func getEventDetail() {
@@ -94,6 +103,7 @@ class ToDetailViewController: UIViewController {
                 self.date = json[i]["date"].stringValue
                 self.place = json[i]["place"].stringValue
                 self.tag = json[i]["tag"].stringValue
+                self.state = json[i]["state"].stringValue
             }
             // ロードが完了したので、falseに
             self.isInLoad = false
@@ -101,7 +111,7 @@ class ToDetailViewController: UIViewController {
         task.resume()
         
         while isInLoad {
-            usleep(2)
+            usleep(5)
         }
     }
     
@@ -129,22 +139,12 @@ class ToDetailViewController: UIViewController {
     }
     
     func createLabels() {
-//        let backgroundView = UIImageView(image: UIImage(named: "TitleBackground.png"))
-//        
-//        backgroundView.frame = CGRectMake(0, UIScreen.mainScreen().bounds.size.height / 2 - (44 + 15), UIScreen.mainScreen().bounds.size.width, 50)
-//        
-//        self.scrollView.addSubview(backgroundView)
-//        
         let labelSize: CGFloat = 25
-//        self.eventLabel.frame = CGRectMake(0, (backgroundView.frame.size.height / 2) - 25, UIScreen.mainScreen().bounds.size.width, 50)
         self.eventLabel.frame = CGRectMake(0, (UIScreen.mainScreen().bounds.size.height / 2) - (44 + 15), UIScreen.mainScreen().bounds.size.width, 50)
         self.eventLabel.layer.cornerRadius = 1.0
-//        self.eventLabel.backgroundColor = UIColor.redColor()
         self.eventLabel.font = UIFont(name: "Helvetica", size: 25)
         self.eventLabel.textAlignment = .Center
         self.scrollView.addSubview(self.eventLabel)
-//        backgroundView.addSubview(self.eventLabel)
-        
         
         self.capacityLabel.frame = CGRectMake(0, self.eventLabel.frame.origin.y + self.horizontalMargin + labelSize * 2, UIScreen.mainScreen().bounds.width, labelSize)
         self.capacityLabel.font = UIFont(name: "Helvetica", size: 20)
@@ -186,7 +186,9 @@ class ToDetailViewController: UIViewController {
     }
     
     func createJoinButton() {
+        self.joinButton.titleLabel?.alpha = 0
         self.joinButton.frame = CGRectMake((UIScreen.mainScreen().bounds.size.width / 2) - 75, self.tagLabel.frame.origin.y + self.horizontalMargin * 2 + self.tagLabel.frame.size.height, 150, 70)
+        self.joinButton.setTitle("join", forState: .Normal)
         let buttonImage = UIImage(named: "Join.png")
         self.joinButton.setBackgroundImage(buttonImage, forState: UIControlState.Normal);
         
@@ -194,7 +196,58 @@ class ToDetailViewController: UIViewController {
         self.scrollView.addSubview(self.joinButton)
     }
     
+    func createMedalGetButton() {
+        self.medalGetButton.frame = CGRectMake((UIScreen.mainScreen().bounds.size.width / 2) - 75, self.tagLabel.frame.origin.y + self.horizontalMargin * 2 + self.tagLabel.frame.size.height, 150, 70)
+        let buttonImage = UIImage(named: "medalget.png")
+        self.medalGetButton.setBackgroundImage(buttonImage, forState: UIControlState.Normal);
+        
+        self.medalGetButton.addTarget(self, action: "getMedal:", forControlEvents: .TouchUpInside)
+        self.scrollView.addSubview(self.medalGetButton)
+    }
+    
+    func getMedal() {
+        // 選択したイベントの参加を認証する
+        let context = LAContext();
+        var error :NSError?
+        // Touch ID が利用できるデバイスか確認する
+        if context.canEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, error: &error) {
+            // 利用できる場合は指紋認証を要求する
+            context.evaluatePolicy(
+                LAPolicy.DeviceOwnerAuthenticationWithBiometrics,
+                localizedReason:"イベントの感想を親御さんに伝えてきてね",
+                reply: {
+                    success, error in
+                    if (success) {
+                        // アラート表示
+                        self.getMedalShowAlert()
+                    } else {
+                        // 指紋認証失敗
+                        NSLog("Error")
+                    }
+            })
+        } else {
+            // Touch ID が利用できない場合
+            NSLog("An Error Occurred: \(error)")
+        }
+    }
+    
+    func getMedalShowAlert() {
+        let alert = SCLAlertView()
+        alert.showCloseButton = false
+        alert.addButton("やったー") {
+        self.appDelegate.greenMedalFlag = true
+        }
+        alert.showSuccess("メダルゲット！", subTitle: "", closeButtonTitle: "hoge", duration: 0)
+    }
+    
      internal func onClickMyButton(sender: UIButton){
+        
+        // 参加を取り消ししようとしている場合
+        if (self.joinButton.titleLabel?.text != "join") {
+            self.cancelEvent()
+            return
+        }
+        
         // 選択したイベントの参加を認証する
         let context = LAContext();
         var error :NSError?
@@ -222,9 +275,80 @@ class ToDetailViewController: UIViewController {
     
     func successJoinEvent() {
         dispatch_async(dispatch_get_main_queue()) {
+            self.successAlert.showCloseButton = false
+            self.successAlert.addButton("はい") {
+                self.serverPost(2)
+                self.changeRegisterButton()
+            }
             self.successAlert.showSuccess("予約完了", subTitle: "イベントへの予約を受け付けました", closeButtonTitle: "はい", duration: 0)
         }
-        print("hoge")
+    }
+    
+    func cancelEvent() {
+        self.successAlert.showCloseButton = true
+        self.successAlert.addButton("はい") {
+            self.serverPost(1)
+            self.changeRegisterButton()
+        }
+        self.successAlert.showSuccess("予約キャンセル", subTitle: "イベントをキャンセルしますか？", closeButtonTitle: "いいえ", duration: 0)
+    }
+
+    func serverPost(index: Int) {
+        let eventID = appDelegate.jsonData!["id"].stringValue
+        // cancel:1  join:2
+        let urlString = "http://192.168.100.150/api/event?event=\(eventID)&state=\(index)"
+        let request = NSMutableURLRequest(URL: NSURL(string: urlString)!)
+        
+        request.HTTPMethod = "GET"
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { data, response, error in
+            if (error == nil) {
+                let result = NSString(data: data!, encoding: NSUTF8StringEncoding)!
+                print(result)
+                self.showNotification(index)
+            } else {
+                print(error)
+            }
+        })
+        task.resume()
+    }
+    
+    func showNotification(index: Int) {
+        let myNotification = UILocalNotification()
+        myNotification.userInfo = ["notification\(appDelegate.jsonData!["id"])" : "cancelKey"]
+        // cancel:1 join:2
+        
+        if (index == 1) {
+            // キャンセル処理
+            // Notificationの生成する.
+            if let notifications = UIApplication.sharedApplication().scheduledLocalNotifications {
+                for notification in notifications {
+                    if let value = notification.userInfo!["cancelKey"] as? String {
+                        if (value == "notification1") {
+                            UIApplication.sharedApplication().cancelLocalNotification(notification)
+                        }
+                    }
+                }
+            }
+
+        } else {
+            myNotification.alertBody = "イベントのお時間ですよ〜"
+            myNotification.soundName = UILocalNotificationDefaultSoundName
+            myNotification.timeZone = NSTimeZone.defaultTimeZone()
+            myNotification.fireDate = NSDate(timeIntervalSinceNow: 10) // 今はテストで参加確定10秒後通知
+            UIApplication.sharedApplication().scheduleLocalNotification(myNotification)
+        }
+    }
+    
+    func changeRegisterButton() {
+        // 押されたのが参加取消の場合
+        if (self.joinButton.titleLabel?.text != "join") {
+            self.joinButton.setTitle("join", forState: .Normal)
+            self.joinButton.setBackgroundImage(UIImage(named: "Join.png"), forState: .Normal)
+            return
+        }
+        self.joinButton.setTitle("willJoin", forState: .Normal)
+        self.joinButton.setBackgroundImage(UIImage(named: "WillJoin.png"), forState: .Normal)
     }
 
     

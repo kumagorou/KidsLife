@@ -167,8 +167,7 @@ class EventSearchViewController: UIViewController, UITableViewDelegate, UITableV
         // Cellに値を設定する.
         cell.textLabel!.text = "\(MyTableItems[indexPath.row])"
         cell.imageView?.contentMode = UIViewContentMode.ScaleAspectFit;
-        cell.imageView!.image = image[pic_num]
-        pic_num += 1;
+        cell.imageView?.image = image[indexPath.row]
         
         return cell
     }
