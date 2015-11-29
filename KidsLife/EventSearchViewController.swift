@@ -158,16 +158,16 @@ class EventSearchViewController: UIViewController, UITableViewDelegate, UITableV
         // 再利用するCellを取得する.
         let cell = tableView.dequeueReusableCellWithIdentifier("MyCell", forIndexPath: indexPath)
         
-        cell.textLabel?.numberOfLines = 4
+        //cell.textLabel?.numberOfLines = 4
+        //let item = self.items[indexPath.row] as MWFeedItem
+        //cell.textLabel?.text = cell.title
+        cell.textLabel?.font = UIFont.systemFontOfSize(12.0)
+        cell.textLabel?.numberOfLines = 0
         
         // Cellに値を設定する.
         cell.textLabel!.text = "\(MyTableItems[indexPath.row])"
-        
-        //ImageData型に変更
-        //let Imagedata = NSData(contentsOfURL: imageURL)
-        //Imageを表示
-        
-        cell.imageView!.image = image[pic_num];
+        cell.imageView?.contentMode = UIViewContentMode.ScaleAspectFit;
+        cell.imageView!.image = image[pic_num]
         pic_num += 1;
         
         return cell
